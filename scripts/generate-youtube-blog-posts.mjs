@@ -1,5 +1,10 @@
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import nextEnv from "@next/env";
+
+const { loadEnvConfig } = nextEnv;
+
+loadEnvConfig(process.cwd());
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 const STATE_FILE = path.join(process.cwd(), "content", ".youtube-sync-state.json");
@@ -102,6 +107,20 @@ async function fetchText(url, init) {
   return response.text();
 }
 
+async function readJsonResponse(response, context) {
+  const raw = await response.text();
+
+  if (!raw.trim()) {
+    throw new Error(`${context}: body vuoto`);
+  }
+
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`${context}: JSON non valido (${error.message})`);
+  }
+}
+
 async function resolveChannel(channelUrl) {
   const html = await fetchText(channelUrl, {
     headers: {
@@ -194,7 +213,15 @@ async function fetchTranscript(videoId) {
     return null;
   }
 
-  const json = await response.json();
+  let json;
+
+  try {
+    json = await readJsonResponse(response, `Transcript ${videoId}`);
+  } catch (error) {
+    log(`${error.message}, salto`);
+    return null;
+  }
+
   const transcript = (json.events ?? [])
     .flatMap((event) => event.segs ?? [])
     .map((segment) => segment.utf8 ?? "")
@@ -253,14 +280,20 @@ async function generateArticleFromTranscript(video, transcript) {
     throw new Error(`OpenAI API error ${response.status}: ${errorText}`);
   }
 
-  const json = await response.json();
+  const json = await readJsonResponse(response, `OpenAI ${video.videoId}`);
   const outputText = json.output_text;
 
   if (!outputText) {
     throw new Error("La risposta OpenAI non contiene output_text.");
   }
 
-  return JSON.parse(outputText);
+  try {
+    return JSON.parse(outputText);
+  } catch (error) {
+    throw new Error(
+      `OpenAI ${video.videoId}: output_text non e JSON valido (${error.message})`,
+    );
+  }
 }
 
 function buildMarkdown(post, publishedAt) {
