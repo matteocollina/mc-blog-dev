@@ -83,6 +83,7 @@ export function renderMarkdown(content: string) {
   const blocks: string[] = [];
   let paragraph: string[] = [];
   let list: string[] = [];
+  let listType: "ul" | "ol" | null = null;
 
   const flushParagraph = () => {
     if (paragraph.length === 0) {
@@ -98,16 +99,23 @@ export function renderMarkdown(content: string) {
   };
 
   const flushList = () => {
-    if (list.length === 0) {
+    if (list.length === 0 || !listType) {
       return;
     }
 
+    const tag = listType === "ol" ? "ol" : "ul";
+    const listClass =
+      listType === "ol"
+        ? "list-decimal space-y-3 pl-6 text-lg leading-8 text-zinc-200"
+        : "list-disc space-y-3 pl-6 text-lg leading-8 text-zinc-200";
+
     blocks.push(
-      `<ul class="list-disc space-y-3 pl-6 text-lg leading-8 text-zinc-200">${list
+      `<${tag} class="${listClass}">${list
         .map((item) => `<li>${parseInlineMarkdown(item)}</li>`)
-        .join("")}</ul>`,
+        .join("")}</${tag}>`,
     );
     list = [];
+    listType = null;
   };
 
   for (const rawLine of lines) {
@@ -165,7 +173,23 @@ export function renderMarkdown(content: string) {
 
     if (line.startsWith("- ")) {
       flushParagraph();
+      if (listType === "ol") {
+        flushList();
+      }
+      listType = "ul";
       list.push(line.slice(2));
+      continue;
+    }
+
+    const orderedListMatch = line.match(/^\d+\.\s+(.*)$/);
+
+    if (orderedListMatch) {
+      flushParagraph();
+      if (listType === "ul") {
+        flushList();
+      }
+      listType = "ol";
+      list.push(orderedListMatch[1]);
       continue;
     }
 
