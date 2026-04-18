@@ -15,6 +15,19 @@ export type BlogPost = BlogPostFrontmatter & {
   content: string;
 };
 
+function normalizeFrontmatterValue(value: string) {
+  const normalized = value.trim();
+
+  if (
+    (normalized.startsWith('"') && normalized.endsWith('"')) ||
+    (normalized.startsWith("'") && normalized.endsWith("'"))
+  ) {
+    return normalized.slice(1, -1);
+  }
+
+  return normalized;
+}
+
 function parseFrontmatter(source: string): BlogPostFrontmatter & { content: string } {
   const match = source.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
 
@@ -40,10 +53,10 @@ function parseFrontmatter(source: string): BlogPostFrontmatter & { content: stri
     });
 
   const frontmatter = Object.fromEntries(entries);
-  const title = frontmatter.title;
-  const subtitle = frontmatter.subtitle;
-  const description = frontmatter.description;
-  const publishedAt = frontmatter.publishedAt;
+  const title = normalizeFrontmatterValue(frontmatter.title);
+  const subtitle = normalizeFrontmatterValue(frontmatter.subtitle);
+  const description = normalizeFrontmatterValue(frontmatter.description);
+  const publishedAt = normalizeFrontmatterValue(frontmatter.publishedAt);
 
   if (!title || !subtitle || !description || !publishedAt) {
     throw new Error("Frontmatter incompleto nel post markdown.");
