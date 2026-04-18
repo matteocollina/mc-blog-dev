@@ -308,17 +308,36 @@ async function generateArticleFromTranscript(video, transcript) {
   }
 
   const json = await readJsonResponse(response, `OpenAI ${video.videoId}`);
-  const outputText = json.output_text;
+  const parsed =
+    json.output_parsed ??
+    json.output?.[0]?.content?.find((item) => item.parsed)?.parsed ??
+    null;
+
+  if (parsed) {
+    return parsed;
+  }
+
+  if (json.refusal) {
+    throw new Error(`OpenAI ${video.videoId}: refusal ${json.refusal}`);
+  }
+
+  const outputText =
+    json.output_text ??
+    json.output?.[0]?.content
+      ?.filter((item) => item.type === "output_text" && typeof item.text === "string")
+      .map((item) => item.text)
+      .join("")
+      .trim();
 
   if (!outputText) {
-    throw new Error("La risposta OpenAI non contiene output_text.");
+    throw new Error(`OpenAI ${video.videoId}: risposta senza output_parsed/output_text`);
   }
 
   try {
     return JSON.parse(outputText);
   } catch (error) {
     throw new Error(
-      `OpenAI ${video.videoId}: output_text non e JSON valido (${error.message})`,
+      `OpenAI ${video.videoId}: output testuale non JSON valido (${error.message})`,
     );
   }
 }

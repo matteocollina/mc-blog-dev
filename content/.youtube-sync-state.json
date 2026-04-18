@@ -1,3 +1,11 @@
 {
-  "processedVideoIds": {}
+  "processedVideoIds": {
+    "04LPpj7lQlA": {
+      "slug": "il-software-non-si-vende-si-vendono-soluzioni-e-cosa-cambia-per-chi-fa-frontend",
+      "title": "Il software non si vende: si vendono soluzioni (e cosa cambia per chi fa frontend)",
+      "sourceTitle": "Software itself has no value. It's the solutions that are valuable, and that will sell.",
+      "publishedAt": "2026-04-18",
+      "createdAt": "2026-04-18T15:37:10.070Z"
+    }
+  }
 }
