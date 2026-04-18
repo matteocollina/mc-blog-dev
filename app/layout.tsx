@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Blog di Matteo Collina ",
   description: "Blog in italiano dedicato al frontend.",
+  icons: {
+    icon: "/favicon-mc.ico",
+    shortcut: "/favicon-mc.ico",
+  },
 };
 
 export default function RootLayout({
