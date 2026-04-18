@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:youtube-posts": "node ./scripts/generate-youtube-blog-posts.mjs"
   },
   "dependencies": {
     "next": "16.2.4",
