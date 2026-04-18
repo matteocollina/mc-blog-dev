@@ -266,7 +266,7 @@ async function generateArticleFromTranscript(video, transcript) {
     `Data pubblicazione video: ${video.publishedAt}`,
     `URL video: ${video.url}`,
     "",
-    "Transcript:",
+    "Materiale di partenza da rielaborare:",
     transcript.slice(0, 18000),
   ].join("\n");
 
@@ -280,7 +280,7 @@ async function generateArticleFromTranscript(video, transcript) {
       model: OPENAI_MODEL,
       input: prompt,
       instructions:
-        "Trasforma il transcript di un video YouTube in un articolo originale in italiano per un blog frontend. Non tradurre letteralmente. Riscrivi, sintetizza e struttura il contenuto in modo chiaro. Il tono deve essere tecnico ma leggibile. Evita introduzioni generiche. Concentrati sui punti utili per chi sviluppa frontend.",
+        "Scrivi un articolo originale in italiano per un blog frontend, come se fosse stato scritto direttamente dall'autore del blog. Usa il materiale fornito solo come base informativa da rielaborare. Non menzionare mai transcript, video, canale YouTube, intervista, speaker, contenuto originale, traduzione, rielaborazione o il fatto che il testo derivi da una fonte esterna. Non usare formule come 'nel video', 'in questo transcript', 'viene spiegato', 'si dice'. Il risultato deve sembrare un articolo editoriale nativo, sicuro, pulito e coerente, con tono tecnico ma leggibile. Organizza il contenuto in modo chiaro, elimina ripetizioni e refusi del parlato, e valorizza solo i concetti utili per chi legge il blog.",
       text: {
         format: {
           type: "json_schema",
