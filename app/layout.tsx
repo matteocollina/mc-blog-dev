@@ -41,26 +41,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K4XJP7DS');`}
         </Script>
-        <Script id="iubenda-config" strategy="beforeInteractive">
-          {`var _iub = _iub || [];
-_iub.csConfiguration = {"siteId":4502133,"cookiePolicyId":69242543,"lang":"it","storage":{"useSiteId":true}};`}
-        </Script>
-        <Script
-          id="iubenda-autoblocking"
-          src="https://cs.iubenda.com/autoblocking/4502133.js"
-          strategy="beforeInteractive"
-        />
-        <Script
-          id="iubenda-gpp-stub"
-          src="//cdn.iubenda.com/cs/gpp/stub.js"
-          strategy="beforeInteractive"
-        />
-        <Script
-          id="iubenda-cookie-solution"
-          src="//cdn.iubenda.com/cs/iubenda_cs.js"
-          charSet="UTF-8"
-          strategy="beforeInteractive"
-        />
         <Script
           id="google-gtag-src"
           src="https://www.googletagmanager.com/gtag/js?id=G-5ZCW8LDWY6"
