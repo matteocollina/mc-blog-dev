@@ -119,6 +119,28 @@ export function renderMarkdown(content: string) {
       continue;
     }
 
+    if (line.startsWith("#### ")) {
+      flushParagraph();
+      flushList();
+      blocks.push(
+        `<h4 class="pt-2 text-lg font-semibold tracking-tight text-zinc-200">${parseInlineMarkdown(
+          line.slice(5),
+        )}</h4>`,
+      );
+      continue;
+    }
+
+    if (line.startsWith("### ")) {
+      flushParagraph();
+      flushList();
+      blocks.push(
+        `<h3 class="pt-3 text-xl font-semibold tracking-tight text-zinc-100">${parseInlineMarkdown(
+          line.slice(4),
+        )}</h3>`,
+      );
+      continue;
+    }
+
     if (line.startsWith("## ")) {
       flushParagraph();
       flushList();
