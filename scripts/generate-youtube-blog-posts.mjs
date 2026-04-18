@@ -19,13 +19,19 @@ const CHANNELS = [
 ];
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const YTSCRIBE_API_KEY = process.env.YTSCRIBE;
 const OPENAI_MODEL = process.env.OPENAI_MODEL ?? "gpt-5.2";
 const MAX_VIDEOS_PER_CHANNEL = Number(process.env.YOUTUBE_MAX_VIDEOS_PER_CHANNEL ?? "5");
 const LOOKBACK_HOURS = Number(process.env.YOUTUBE_LOOKBACK_HOURS ?? "36");
 const OPENAI_API_URL = "https://api.openai.com/v1/responses";
+const YTSCRIBE_API_URL = "https://ytscribe.ai/api/transcripts";
 
 if (!OPENAI_API_KEY) {
   throw new Error("OPENAI_API_KEY mancante.");
+}
+
+if (!YTSCRIBE_API_KEY) {
+  throw new Error("YTSCRIBE mancante.");
 }
 
 function log(message) {
@@ -153,83 +159,104 @@ async function fetchLatestVideos(channelUrl) {
   return parseRssEntries(feedXml).slice(0, MAX_VIDEOS_PER_CHANNEL);
 }
 
-function findCaptionTracks(html) {
-  const tracksMatch = html.match(/"captionTracks":(\[[\s\S]*?\])/);
+async function fetchTranscript(videoId) {
+  const response = await fetch(YTSCRIBE_API_URL, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${YTSCRIBE_API_KEY}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      url: `https://youtube.com/watch?v=${videoId}`,
+    }),
+  });
 
-  if (!tracksMatch) {
-    return [];
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`YTScribe ${videoId}: HTTP ${response.status} ${errorText}`);
   }
+
+  let payload;
 
   try {
-    return JSON.parse(tracksMatch[1]);
-  } catch {
-    return [];
+    payload = await readJsonResponse(response, `YTScribe ${videoId}`);
+  } catch (error) {
+    throw new Error(error.message);
   }
+
+  if (payload?.status && payload.status !== "ok") {
+    throw new Error(`YTScribe ${videoId}: status inatteso ${payload.status}`);
+  }
+
+  const transcript = extractTranscriptFromYtScribePayload(payload?.data);
+
+  if (!transcript) {
+    log(`YTScribe ${videoId}: transcript assente nella risposta, salto`);
+    return null;
+  }
+
+  return transcript;
 }
 
-function pickCaptionTrack(tracks) {
-  const preferences = [
-    (track) => track.languageCode === "it",
-    (track) => track.languageCode?.startsWith("it"),
-    (track) => track.languageCode === "en" && !track.kind,
-    (track) => track.languageCode?.startsWith("en") && !track.kind,
-    (track) => track.languageCode === "en",
-    () => true,
-  ];
+function extractTranscriptFromYtScribePayload(payload) {
+  if (!payload) {
+    return null;
+  }
 
-  for (const predicate of preferences) {
-    const track = tracks.find(predicate);
+  if (typeof payload === "string") {
+    const normalized = payload.trim();
+    return normalized || null;
+  }
 
-    if (track?.baseUrl) {
-      return track;
+  if (Array.isArray(payload)) {
+    const combined = payload
+      .map((item) => {
+        if (typeof item === "string") {
+          return item;
+        }
+
+        if (typeof item?.text === "string") {
+          return item.text;
+        }
+
+        if (typeof item?.content === "string") {
+          return item.content;
+        }
+
+        return "";
+      })
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    return combined || null;
+  }
+
+  if (typeof payload !== "object") {
+    return null;
+  }
+
+  const directKeys = ["text", "transcript", "content", "full_text"];
+
+  for (const key of directKeys) {
+    if (typeof payload[key] === "string" && payload[key].trim()) {
+      return payload[key].trim();
+    }
+  }
+
+  const nestedKeys = ["segments", "items", "captions", "entries"];
+
+  for (const key of nestedKeys) {
+    if (Array.isArray(payload[key])) {
+      const combined = extractTranscriptFromYtScribePayload(payload[key]);
+
+      if (combined) {
+        return combined;
+      }
     }
   }
 
   return null;
-}
-
-async function fetchTranscript(videoId) {
-  const html = await fetchText(`https://www.youtube.com/watch?v=${videoId}`, {
-    headers: {
-      "user-agent": "mc-blog-dev-bot/1.0",
-    },
-  });
-  const track = pickCaptionTrack(findCaptionTracks(html));
-
-  if (!track) {
-    return null;
-  }
-
-  const transcriptUrl = new URL(track.baseUrl);
-  transcriptUrl.searchParams.set("fmt", "json3");
-
-  const response = await fetch(transcriptUrl, {
-    headers: {
-      "user-agent": "mc-blog-dev-bot/1.0",
-    },
-  });
-
-  if (!response.ok) {
-    return null;
-  }
-
-  let json;
-
-  try {
-    json = await readJsonResponse(response, `Transcript ${videoId}`);
-  } catch (error) {
-    log(`${error.message}, salto`);
-    return null;
-  }
-
-  const transcript = (json.events ?? [])
-    .flatMap((event) => event.segs ?? [])
-    .map((segment) => segment.utf8 ?? "")
-    .join(" ")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  return transcript || null;
 }
 
 async function generateArticleFromTranscript(video, transcript) {
