@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import "./globals.css";
+import ThemeToggle from "@/app/components/theme-toggle";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -47,9 +49,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeScript = `(() => {
+    const storageKey = "mc-blog-theme";
+    const savedTheme = window.localStorage.getItem(storageKey);
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.dataset.theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : systemTheme;
+  })();`;
+
   return (
-    <html lang="it" className="h-full antialiased">
-      <body className="min-h-full bg-zinc-950 text-zinc-50">
+    <html lang="it" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="min-h-full bg-[var(--background)] text-[var(--foreground)]">
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -78,26 +90,39 @@ gtag('config', 'G-5ZCW8LDWY6');`}
           />
         </noscript>
         <div className="mx-auto flex min-h-full w-full max-w-5xl flex-col px-6 py-8 sm:px-10">
-          <header className="mb-12 flex items-center justify-between border-b border-zinc-800 pb-5">
+          <header className="mb-12 flex items-center justify-between border-b border-[var(--border)] pb-5">
             <Link
               href="/"
-              className="text-lg font-semibold tracking-tight text-zinc-50 transition-colors hover:text-zinc-300"
+              aria-label="Blog di Matteo Collina"
+              className="transition-colors hover:text-[var(--text-tertiary)]"
             >
-              Blog di Matteo Collina
+              <>
+                <Image
+                  src="/mc.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="rounded-full border border-[var(--border)] object-cover sm:hidden"
+                />
+                <span className="hidden text-lg font-semibold tracking-tight text-[var(--text-primary)] sm:inline">
+                  Blog di Matteo Collina
+                </span>
+              </>
             </Link>
             <nav aria-label="Main navigation" className="flex items-center gap-6">
               <Link
                 href="/blog"
-                className="rounded-full px-3 py-2 text-sm font-semibold text-zinc-100 transition-colors hover:bg-zinc-50 hover:text-zinc-950"
+                className="rounded-full px-3 py-2 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:bg-[var(--accent-bg)] hover:text-[var(--accent-fg)]"
               >
                 Blog
               </Link>
               <Link
                 href="/about"
-                className="rounded-full px-3 py-2 text-sm font-semibold text-zinc-100 transition-colors hover:bg-zinc-50 hover:text-zinc-950"
+                className="rounded-full px-3 py-2 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:bg-[var(--accent-bg)] hover:text-[var(--accent-fg)]"
               >
                 About
               </Link>
+              <ThemeToggle />
             </nav>
           </header>
           <main className="flex-1">{children}</main>

@@ -74,13 +74,13 @@ export default async function BlogCategoryPage(
       <div className="space-y-4">
         <BackButton fallbackHref="/blog" />
         <div className="space-y-3">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--text-subtle)]">
             Categoria
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-zinc-50 capitalize">
+          <h1 className="text-4xl font-semibold tracking-tight text-[var(--text-primary)] capitalize">
             {category.name}
           </h1>
-          <p className="max-w-2xl text-lg leading-8 text-zinc-200">
+          <p className="max-w-2xl text-lg leading-8 text-[var(--text-secondary)]">
             {posts.length} {posts.length === 1 ? "articolo associato" : "articoli associati"} a
             questo tag.
           </p>
@@ -91,16 +91,16 @@ export default async function BlogCategoryPage(
         {posts.map((post) => (
           <article
             key={post.slug}
-            className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 transition-colors hover:border-zinc-700"
+            className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface-strong)]"
           >
             <Link href={`/blog/${post.slug}`} className="group block space-y-3">
-              <p className="text-sm font-medium text-zinc-400">
+              <p className="text-sm font-medium text-[var(--text-muted)]">
                 {formatPublishedAt(post.publishedAt)}
               </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-zinc-50 transition-colors group-hover:text-zinc-300">
+              <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)] transition-colors group-hover:text-[var(--text-tertiary)]">
                 {post.title}
               </h2>
-              <p className="text-base leading-7 text-zinc-300">
+              <p className="text-base leading-7 text-[var(--text-tertiary)]">
                 {post.description}
               </p>
             </Link>
@@ -115,10 +115,10 @@ export default async function BlogCategoryPage(
                       <Link
                         href={`/blog/categorie/${tagSlug}`}
                         aria-current={isCurrentTag ? "page" : undefined}
-                        className={`inline-flex rounded-full border px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300 ${
+                        className={`inline-flex rounded-full border px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--text-muted)] ${
                           isCurrentTag
-                            ? "border-zinc-500 bg-zinc-100 text-zinc-950"
-                            : "border-zinc-700 bg-zinc-950/80 text-zinc-300 hover:border-zinc-500 hover:bg-zinc-900 hover:text-zinc-100"
+                            ? "border-[var(--accent-hover-border)] bg-[var(--pill-active-bg)] text-[var(--pill-active-fg)]"
+                            : "border-[var(--accent-border)] bg-[var(--surface-muted)] text-[var(--text-tertiary)] hover:border-[var(--accent-hover-border)] hover:bg-[var(--surface-strong)] hover:text-[var(--text-primary)]"
                         }`}
                       >
                         {tag}
