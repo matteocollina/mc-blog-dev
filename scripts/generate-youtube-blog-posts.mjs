@@ -391,6 +391,16 @@ async function main() {
 
   const state = await readState();
   const usedSlugs = await existingSlugs();
+  /**
+   * Prende i video pubblicati o creati dopo quella soglia temporale, cioé negli ultimi LOOKBACK_HOURS`.
+      Esempio:
+      se adesso sono le 19:00
+      e LOOKBACK_HOURS = 24
+      allora threshold corrisponde a ieri alle 19:00.
+
+      In quel caso il filtro prenderebbe i video da ieri alle 19:00 in poi.
+   * 
+   */
   const threshold = Date.now() - LOOKBACK_HOURS * 60 * 60 * 1000;
   const allVideos = [];
 
