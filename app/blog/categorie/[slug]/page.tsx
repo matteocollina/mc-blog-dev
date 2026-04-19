@@ -10,6 +10,7 @@ import {
   getPostsByTagSlug,
   slugifyTag,
 } from "@/lib/blog";
+import { siteConfig } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -32,8 +33,26 @@ export async function generateMetadata(
   }
 
   return {
-    title: `${category.name}`,
+    title: category.name,
     description: `Articoli del blog associati al tag ${category.name}.`,
+    alternates: {
+      canonical: `/blog/categorie/${category.slug}`,
+    },
+    openGraph: {
+      type: "website",
+      locale: siteConfig.locale,
+      url: `/blog/categorie/${category.slug}`,
+      siteName: siteConfig.name,
+      title: `${category.name} | ${siteConfig.name}`,
+      description: `Articoli del blog associati al tag ${category.name}.`,
+      images: ["/opengraph-image"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.name} | ${siteConfig.name}`,
+      description: `Articoli del blog associati al tag ${category.name}.`,
+      images: ["/opengraph-image"],
+    },
   };
 }
 

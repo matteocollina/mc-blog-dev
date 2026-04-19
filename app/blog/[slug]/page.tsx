@@ -11,6 +11,7 @@ import {
   getPostBySlug,
   slugifyTag,
 } from "@/lib/blog";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -33,8 +34,35 @@ export async function generateMetadata(
   }
 
   return {
-    title: `${post.title} | Blog di Matteo Collina`,
+    title: post.title,
     description: post.description,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      locale: siteConfig.locale,
+      url: `/blog/${post.slug}`,
+      siteName: siteConfig.name,
+      title: post.title,
+      description: post.description,
+      publishedTime: new Date(post.publishedAt).toISOString(),
+      tags: post.tags,
+      images: [
+        {
+          url: absoluteUrl(`/blog/${post.slug}/opengraph-image`),
+          width: 1200,
+          height: 630,
+          alt: `${post.title} - anteprima articolo`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [absoluteUrl(`/blog/${post.slug}/opengraph-image`)],
+    },
   };
 }
 

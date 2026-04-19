@@ -1,7 +1,33 @@
+import type { Metadata } from "next";
+
 import { BlogListing } from "@/app/components/blog-listing";
 import { getAllPosts } from "@/lib/blog";
+import { siteConfig } from "@/lib/site";
 
 const POSTS_PER_PAGE = 10;
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: "/blog",
+    siteName: siteConfig.name,
+    title: `Blog | ${siteConfig.name}`,
+    description: "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Blog | ${siteConfig.name}`,
+    description: "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
+    images: ["/opengraph-image"],
+  },
+};
 
 function parsePageParam(value: string | string[] | undefined) {
   const candidate = Array.isArray(value) ? value[0] : value;
