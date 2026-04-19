@@ -1,5 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
+import { unstable_cache } from "next/cache";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
@@ -111,24 +112,35 @@ function sortCategories(categories: BlogCategory[]) {
   return categories.sort((left, right) => left.name.localeCompare(right.name, "it"));
 }
 
+const loadAllPosts = unstable_cache(
+  async () => {
+    const entries = await readdir(BLOG_DIR, { withFileTypes: true });
+    const posts = await Promise.all(
+      entries
+        .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
+        .map(async (entry) => {
+          const slug = entry.name.replace(/\.md$/, "");
+          const source = await readFile(path.join(BLOG_DIR, entry.name), "utf8");
+          const post = parseFrontmatter(source);
+
+          return {
+            slug,
+            ...post,
+          };
+        }),
+    );
+
+    return sortPosts(posts);
+  },
+  ["blog-posts"],
+  {
+    revalidate: 3600,
+    tags: ["blog-posts"],
+  },
+);
+
 export async function getAllPosts() {
-  const entries = await readdir(BLOG_DIR, { withFileTypes: true });
-  const posts = await Promise.all(
-    entries
-      .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
-      .map(async (entry) => {
-        const slug = entry.name.replace(/\.md$/, "");
-        const source = await readFile(path.join(BLOG_DIR, entry.name), "utf8");
-        const post = parseFrontmatter(source);
-
-        return {
-          slug,
-          ...post,
-        };
-      }),
-  );
-
-  return sortPosts(posts);
+  return loadAllPosts();
 }
 
 export async function getPostBySlug(slug: string) {

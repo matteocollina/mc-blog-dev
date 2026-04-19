@@ -1,5 +1,8 @@
-import BlogPage from "./blog/page";
+import { BlogListing } from "./components/blog-listing";
+import { getAllPosts } from "@/lib/blog";
 
-export default async function Home(props: PageProps<"/">) {
-  return <BlogPage searchParams={props.searchParams} params={Promise.resolve({})} />;
+export default async function Home() {
+  const posts = await getAllPosts();
+
+  return <BlogListing posts={posts} currentPage={1} totalPages={1} />;
 }
