@@ -6,29 +6,6 @@ import { siteConfig } from "@/lib/site";
 
 const POSTS_PER_PAGE = 10;
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
-  alternates: {
-    canonical: "/blog",
-  },
-  openGraph: {
-    type: "website",
-    locale: siteConfig.locale,
-    url: "/blog",
-    siteName: siteConfig.name,
-    title: `Blog | ${siteConfig.name}`,
-    description: "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
-    images: ["/opengraph-image"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `Blog | ${siteConfig.name}`,
-    description: "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
-    images: ["/opengraph-image"],
-  },
-};
-
 function parsePageParam(value: string | string[] | undefined) {
   const candidate = Array.isArray(value) ? value[0] : value;
   const parsed = Number.parseInt(candidate ?? "1", 10);
@@ -38,6 +15,42 @@ function parsePageParam(value: string | string[] | undefined) {
   }
 
   return parsed;
+}
+
+export async function generateMetadata(
+  props: PageProps<"/blog">,
+): Promise<Metadata> {
+  const searchParams = await props.searchParams;
+  const currentPage = parsePageParam(searchParams.page);
+  const canonical = currentPage <= 1 ? "/" : `/blog?page=${currentPage}`;
+  const title =
+    currentPage <= 1 ? `Blog | ${siteConfig.name}` : `Blog - Pagina ${currentPage} | ${siteConfig.name}`;
+
+  return {
+    title: currentPage <= 1 ? "Blog" : `Blog - Pagina ${currentPage}`,
+    description:
+      "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      type: "website",
+      locale: siteConfig.locale,
+      url: canonical,
+      siteName: siteConfig.name,
+      title,
+      description:
+        "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
+      images: ["/opengraph-image"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description:
+        "Archivio degli articoli e aggiornamenti frontend di Matteo Collina.",
+      images: ["/opengraph-image"],
+    },
+  };
 }
 
 export default async function BlogPage(props: PageProps<"/blog">) {
