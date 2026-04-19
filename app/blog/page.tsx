@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { formatPublishedAt, getAllPosts } from "@/lib/blog";
+import { formatPublishedAt, getAllPosts, slugifyTag } from "@/lib/blog";
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
@@ -37,6 +37,20 @@ export default async function BlogPage() {
                 {post.description}
               </p>
             </Link>
+            {post.tags.length > 0 ? (
+              <ul className="flex flex-wrap gap-2 pt-4">
+                {post.tags.map((tag) => (
+                  <li key={tag}>
+                    <Link
+                      href={`/blog/categorie/${slugifyTag(tag)}`}
+                      className="inline-flex rounded-full border border-zinc-700 bg-zinc-950/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-900 hover:text-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300"
+                    >
+                      {tag}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </article>
         ))}
       </div>

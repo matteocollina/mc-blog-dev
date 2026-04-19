@@ -8,11 +8,18 @@ export type BlogPostFrontmatter = {
   subtitle: string;
   description: string;
   publishedAt: string;
+  tags: string[];
 };
 
 export type BlogPost = BlogPostFrontmatter & {
   slug: string;
   content: string;
+};
+
+export type BlogCategory = {
+  name: string;
+  slug: string;
+  count: number;
 };
 
 function normalizeFrontmatterValue(value: string) {
@@ -57,6 +64,7 @@ function parseFrontmatter(source: string): BlogPostFrontmatter & { content: stri
   const subtitle = normalizeFrontmatterValue(frontmatter.subtitle);
   const description = normalizeFrontmatterValue(frontmatter.description);
   const publishedAt = normalizeFrontmatterValue(frontmatter.publishedAt);
+  const tags = parseFrontmatterTags(frontmatter.tags);
 
   if (!title || !subtitle || !description || !publishedAt) {
     throw new Error("Frontmatter incompleto nel post markdown.");
@@ -67,8 +75,29 @@ function parseFrontmatter(source: string): BlogPostFrontmatter & { content: stri
     subtitle,
     description,
     publishedAt,
+    tags,
     content: content.trim(),
   };
+}
+
+function parseFrontmatterTags(value: string | undefined) {
+  if (!value) {
+    return [];
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed
+      .map((tag) => (typeof tag === "string" ? tag.trim() : ""))
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
 }
 
 function escapeHtml(value: string) {
@@ -222,6 +251,10 @@ function sortPosts(posts: BlogPost[]) {
   );
 }
 
+function sortCategories(categories: BlogCategory[]) {
+  return categories.sort((left, right) => left.name.localeCompare(right.name, "it"));
+}
+
 export async function getAllPosts() {
   const entries = await readdir(BLOG_DIR, { withFileTypes: true });
   const posts = await Promise.all(
@@ -256,6 +289,58 @@ export async function getPostBySlug(slug: string) {
   } catch {
     return null;
   }
+}
+
+export function slugifyTag(tag: string) {
+  return tag
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export async function getAllCategories() {
+  const posts = await getAllPosts();
+  const categories = new Map<string, BlogCategory>();
+
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      const slug = slugifyTag(tag);
+
+      if (!slug) {
+        continue;
+      }
+
+      const existing = categories.get(slug);
+
+      if (existing) {
+        existing.count += 1;
+        continue;
+      }
+
+      categories.set(slug, {
+        name: tag,
+        slug,
+        count: 1,
+      });
+    }
+  }
+
+  return sortCategories([...categories.values()]);
+}
+
+export async function getCategoryBySlug(slug: string) {
+  const categories = await getAllCategories();
+  return categories.find((category) => category.slug === slug) ?? null;
+}
+
+export async function getPostsByTagSlug(slug: string) {
+  const posts = await getAllPosts();
+
+  return posts.filter((post) =>
+    post.tags.some((tag) => slugifyTag(tag) === slug),
+  );
 }
 
 export function formatPublishedAt(date: string) {

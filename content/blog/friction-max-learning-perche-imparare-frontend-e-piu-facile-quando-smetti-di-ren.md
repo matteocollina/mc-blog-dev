@@ -3,6 +3,7 @@ title: "Friction-max learning: perché imparare frontend è più facile quando s
 subtitle: "Meno hype, più attrito buono: fondamentali, progetti piccoli e scelte consapevoli (anche con l’AI)."
 description: "L’industria del web tende a vendere scorciatoie: tool sempre nuovi, framework “obbligatori”, AI che promette di fare tutto al posto tuo. Ma per imparare davvero—e non solo assemblare pezzi—serve l’opposto: aumentare l’attrito giusto. In questo articolo vediamo come usare la difficoltà come leva didattica nel frontend, evitare la trappola della checklist infinita e costruire competenze solide con progetti volutamente imperfetti."
 publishedAt: 2026-04-17
+tags: ["Learning", "AI"]
 ---
 ## L’hype è una tassa cognitiva (soprattutto per chi inizia)
 

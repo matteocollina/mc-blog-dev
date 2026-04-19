@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import BackButton from "@/app/components/back-button";
 import {
   formatPublishedAt,
   getAllPosts,
   getPostBySlug,
   renderMarkdown,
+  slugifyTag,
 } from "@/lib/blog";
 
 export const dynamicParams = false;
@@ -44,6 +47,8 @@ export default async function BlogDetailPage(props: PageProps<"/blog/[slug]">) {
 
   return (
     <article className="space-y-8">
+      <BackButton fallbackHref="/blog" />
+
       <header className="space-y-4 border-b border-zinc-800 pb-8">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-400">
           {formatPublishedAt(post.publishedAt)}
@@ -58,6 +63,20 @@ export default async function BlogDetailPage(props: PageProps<"/blog/[slug]">) {
           <p className="max-w-3xl text-lg leading-8 text-zinc-200">
             {post.description}
           </p>
+          {post.tags.length > 0 ? (
+            <ul className="flex flex-wrap gap-2 pt-2">
+              {post.tags.map((tag) => (
+                <li key={tag}>
+                  <Link
+                    href={`/blog/categorie/${slugifyTag(tag)}`}
+                    className="inline-flex rounded-full border border-zinc-700 bg-zinc-900/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800 hover:text-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300"
+                  >
+                    {tag}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </header>
 

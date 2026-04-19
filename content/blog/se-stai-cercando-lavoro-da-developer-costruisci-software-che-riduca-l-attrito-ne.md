@@ -3,6 +3,7 @@ title: "Se stai cercando lavoro da developer, costruisci software che riduca l�
 subtitle: "I progetti “da portfolio” contano, ma quelli che risolvono un tuo problema reale ti allenano esattamente al ciclo che le aziende pagano."
 description: "Hai già creato qualche progetto demo e una web app “completa”? Bene. Il passo successivo, se stai cercando lavoro, è costruire qualcosa che ti tolga frizione nella vita reale: un tool che userai davvero, ogni giorno. È il modo più diretto per dimostrare product sense, capacità di delivery e attenzione al valore, non solo alle feature."
 publishedAt: 2026-04-17
+tags: ["Product sense", "Workflow"]
 ---
 Molti percorsi di studio (bootcamp, tutorial, esercizi guidati) ti portano a una tappa naturale: hai una manciata di progetti “da mostrare”, magari una o due web app che funzionano, CRUD, autenticazione, deploy. È un traguardo importante.
 

@@ -280,7 +280,7 @@ async function generateArticleFromTranscript(video, transcript) {
       model: OPENAI_MODEL,
       input: prompt,
       instructions:
-        "Scrivi un articolo originale in italiano per un blog frontend, come se fosse stato scritto direttamente dall'autore del blog. Usa il materiale fornito solo come base informativa da rielaborare. Non menzionare mai transcript, video, canale YouTube, intervista, speaker, contenuto originale, traduzione, rielaborazione o il fatto che il testo derivi da una fonte esterna. Non usare formule come 'nel video', 'in questo transcript', 'viene spiegato', 'si dice'. Il risultato deve sembrare un articolo editoriale nativo, sicuro, pulito e coerente, con tono tecnico ma leggibile. Organizza il contenuto in modo chiaro, elimina ripetizioni e refusi del parlato, e valorizza solo i concetti utili per chi legge il blog.",
+        "Scrivi un articolo originale in italiano per un blog frontend, come se fosse stato scritto direttamente dall'autore del blog. Usa il materiale fornito solo come base informativa da rielaborare. Non menzionare mai transcript, video, canale YouTube, intervista, speaker, contenuto originale, traduzione, rielaborazione o il fatto che il testo derivi da una fonte esterna. Non usare formule come 'nel video', 'in questo transcript', 'viene spiegato', 'si dice'. Il risultato deve sembrare un articolo editoriale nativo, sicuro, pulito e coerente, con tono tecnico ma leggibile. Organizza il contenuto in modo chiaro, elimina ripetizioni e refusi del parlato, e valorizza solo i concetti utili per chi legge il blog. Genera anche 3-6 tag brevi e specifici, in italiano, utili da mostrare nell'articolo. Evita tag generici come 'web', 'programmazione' o 'sviluppo'.",
       text: {
         format: {
           type: "json_schema",
@@ -293,9 +293,13 @@ async function generateArticleFromTranscript(video, transcript) {
               title: { type: "string" },
               subtitle: { type: "string" },
               description: { type: "string" },
+              tags: {
+                type: "array",
+                items: { type: "string" },
+              },
               bodyMarkdown: { type: "string" },
             },
-            required: ["title", "subtitle", "description", "bodyMarkdown"],
+            required: ["title", "subtitle", "description", "tags", "bodyMarkdown"],
           },
         },
       },
@@ -342,14 +346,29 @@ async function generateArticleFromTranscript(video, transcript) {
   }
 }
 
+function normalizeTags(tags) {
+  if (!Array.isArray(tags)) {
+    return [];
+  }
+
+  return [...new Set(
+    tags
+      .map((tag) => (typeof tag === "string" ? tag.trim() : ""))
+      .filter(Boolean)
+      .slice(0, 6),
+  )];
+}
+
 function buildMarkdown(post, publishedAt) {
   const quote = (value) => JSON.stringify(value);
+  const tags = normalizeTags(post.tags);
 
   return `---
 title: ${quote(post.title)}
 subtitle: ${quote(post.subtitle)}
 description: ${quote(post.description)}
 publishedAt: ${publishedAt}
+tags: ${JSON.stringify(tags)}
 ---
 ${post.bodyMarkdown.trim()}
 `;
