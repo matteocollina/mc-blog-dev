@@ -1,5 +1,5 @@
 import BlogPage from "./blog/page";
 
-export default function Home() {
-  return <BlogPage />;
+export default async function Home(props: PageProps<"/">) {
+  return <BlogPage searchParams={props.searchParams} params={Promise.resolve({})} />;
 }

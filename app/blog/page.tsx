@@ -2,8 +2,31 @@ import Link from "next/link";
 
 import { formatPublishedAt, getAllPosts, slugifyTag } from "@/lib/blog";
 
-export default async function BlogPage() {
+const POSTS_PER_PAGE = 10;
+
+function parsePageParam(value: string | string[] | undefined) {
+  const candidate = Array.isArray(value) ? value[0] : value;
+  const parsed = Number.parseInt(candidate ?? "1", 10);
+
+  if (!Number.isFinite(parsed) || parsed < 1) {
+    return 1;
+  }
+
+  return parsed;
+}
+
+function buildPageHref(page: number) {
+  return page <= 1 ? "/blog" : `/blog?page=${page}`;
+}
+
+export default async function BlogPage(props: PageProps<"/blog">) {
   const posts = await getAllPosts();
+  const searchParams = await props.searchParams;
+  const requestedPage = parsePageParam(searchParams.page);
+  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+  const currentPage = Math.min(requestedPage, totalPages);
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const visiblePosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
   return (
     <section className="space-y-10">
@@ -18,10 +41,13 @@ export default async function BlogPage() {
           Un archivio semplice con note, riflessioni e contenuti pratici sul
           frontend.
         </p>
+        <p className="text-sm text-zinc-500">
+          Pagina {currentPage} di {totalPages}
+        </p>
       </div>
 
       <div className="space-y-5">
-        {posts.map((post) => (
+        {visiblePosts.map((post) => (
           <article
             key={post.slug}
             className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 transition-colors hover:border-zinc-700"
@@ -54,6 +80,39 @@ export default async function BlogPage() {
           </article>
         ))}
       </div>
+
+      {totalPages > 1 ? (
+        <nav
+          aria-label="Paginazione articoli"
+          className="flex items-center justify-between gap-4 border-t border-zinc-800 pt-6"
+        >
+          {currentPage > 1 ? (
+            <Link
+              href={buildPageHref(currentPage - 1)}
+              className="inline-flex rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-2 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800 hover:text-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300"
+            >
+              Precedente
+            </Link>
+          ) : (
+            <span className="inline-flex rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-2 text-sm font-medium text-zinc-600">
+              Precedente
+            </span>
+          )}
+
+          {currentPage < totalPages ? (
+            <Link
+              href={buildPageHref(currentPage + 1)}
+              className="ml-auto inline-flex rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-2 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800 hover:text-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300"
+            >
+              Successiva
+            </Link>
+          ) : (
+            <span className="ml-auto inline-flex rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-2 text-sm font-medium text-zinc-600">
+              Successiva
+            </span>
+          )}
+        </nav>
+      ) : null}
     </section>
   );
 }
