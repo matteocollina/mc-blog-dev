@@ -3,7 +3,7 @@ title: "Il software non si vende: si vendono soluzioni (e cambia tutto, anche pe
 subtitle: "Quando smetti di ragionare “a feature” e inizi a ragionare “a problema”, anche il modo in cui progetti UI, API e roadmap diventa più efficace."
 description: "Un cambio di mentalità fondamentale per chi costruisce prodotti digitali: il valore non è nel codice, ma nell’impatto. Vediamo cosa significa “vendere soluzioni” e come applicarlo nel lavoro quotidiano di un team frontend, soprattutto quando gli stakeholder non sono tecnici."
 publishedAt: 2026-04-18
-tags: ["Product thinking" "Stakeholder", "UX"]
+tags: ["Product thinking", "Stakeholder", "UX"]
 ---
 Nel mondo dello sviluppo è facile cadere in una trappola: pensare che il software “si venda” da solo. Che basti una buona architettura, un’interfaccia curata, un po’ di performance tuning e il resto arriverà. In realtà, per la maggior parte delle organizzazioni (e dei clienti) **il software è solo un mezzo**. Il valore percepito sta nella **soluzione** che quel software abilita.
 
