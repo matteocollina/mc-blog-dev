@@ -3,12 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import BackButton from "@/app/components/back-button";
+import MarkdownContent from "@/app/components/markdown-content";
 import {
   formatPublishedAt,
   getAdjacentPosts,
   getAllPosts,
   getPostBySlug,
-  renderMarkdown,
   slugifyTag,
 } from "@/lib/blog";
 
@@ -83,10 +83,9 @@ export default async function BlogDetailPage(props: PageProps<"/blog/[slug]">) {
         </div>
       </header>
 
-      <div
-        className="space-y-6"
-        dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
-      />
+      <div className="space-y-6">
+        <MarkdownContent content={post.content} />
+      </div>
 
       {previousPost || nextPost ? (
         <nav
