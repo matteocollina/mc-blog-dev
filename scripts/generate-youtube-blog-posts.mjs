@@ -16,6 +16,11 @@ const CHANNELS = [
   "https://www.youtube.com/@KevinPowell",
   "https://www.youtube.com/@DesignCourse",
   "https://www.youtube.com/@academind",
+  "https://www.youtube.com/@CallstackEngineers",
+  "https://www.youtube.com/@camelCaseDev",
+  "https://www.youtube.com/@ChromeDevs",
+  "https://www.youtube.com/@CoderOne",
+  "https://www.youtube.com/@VercelHQ"
 ];
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
