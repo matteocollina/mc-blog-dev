@@ -291,6 +291,23 @@ export async function getPostBySlug(slug: string) {
   }
 }
 
+export async function getAdjacentPosts(slug: string) {
+  const posts = await getAllPosts();
+  const currentIndex = posts.findIndex((post) => post.slug === slug);
+
+  if (currentIndex === -1) {
+    return {
+      previousPost: null,
+      nextPost: null,
+    };
+  }
+
+  return {
+    previousPost: posts[currentIndex - 1] ?? null,
+    nextPost: posts[currentIndex + 1] ?? null,
+  };
+}
+
 export function slugifyTag(tag: string) {
   return tag
     .normalize("NFKD")
