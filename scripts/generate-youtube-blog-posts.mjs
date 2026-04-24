@@ -415,6 +415,7 @@ async function main() {
 
   const state = await readState();
   const usedSlugs = await existingSlugs();
+  let hasErrors = false;
   /**
    * Prende i video pubblicati o creati dopo quella soglia temporale, cioé negli ultimi LOOKBACK_HOURS`.
       Esempio:
@@ -434,6 +435,7 @@ async function main() {
       const videos = await fetchLatestVideos(channelUrl);
       allVideos.push(...videos);
     } catch (error) {
+      hasErrors = true;
       log(`Errore sul canale ${channelUrl}: ${error.message}`);
     }
   }
@@ -475,11 +477,21 @@ async function main() {
 
       log(`Creato post ${slug}.md`);
     } catch (error) {
+      hasErrors = true;
       log(`Errore sul video ${video.videoId}: ${error.message}`);
     }
   }
 
   await writeState(state);
+
+  if (hasErrors) {
+    throw new Error("Generazione completata con errori.");
+  }
 }
 
-await main();
+try {
+  await main();
+} catch (error) {
+  console.error(`[youtube-blog] ${error.message}`);
+  process.exitCode = 1;
+}
