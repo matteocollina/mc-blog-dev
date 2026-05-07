@@ -209,6 +209,34 @@
       "sourceTitle": "Quick tip from Homebrew project leader Mike McQuaid: downtime is important. Simple, right?",
       "publishedAt": "2026-05-03",
       "createdAt": "2026-05-04T08:25:32.435Z"
+    },
+    "ooYKMPlIlwQ": {
+      "slug": "codepen-2-0-un-editor-tre-box-che-diventa-una-piattaforma-estensibile",
+      "title": "CodePen 2.0: un editor “tre box” che diventa una piattaforma estensibile",
+      "sourceTitle": "So what's CodePen 2.0? Why is it better? Chris Coyier tells you all about it.",
+      "publishedAt": "2026-05-06",
+      "createdAt": "2026-05-07T08:29:13.963Z"
+    },
+    "MVsG4agTS94": {
+      "slug": "css-battle-in-10-minuti-3-pattern-3-strategie-e-qualche-trucco-utile-anche-fuori",
+      "title": "CSS Battle in 10 minuti: 3 pattern, 3 strategie (e qualche trucco utile anche “fuori gara”)",
+      "sourceTitle": "Frontend developer takes on CSS Battles - 10-minute challenge",
+      "publishedAt": "2026-05-06",
+      "createdAt": "2026-05-07T08:29:45.436Z"
+    },
+    "9TsVbyoJRbA": {
+      "slug": "migrare-a-react-native-senza-settimane-di-attrito-brownfield-setup-rapido-e-ai-i",
+      "title": "Migrare a React Native senza settimane di attrito: brownfield, setup rapido e AI in supporto",
+      "sourceTitle": "What if React Native migration didn’t take weeks?",
+      "publishedAt": "2026-05-06",
+      "createdAt": "2026-05-07T08:30:17.272Z"
+    },
+    "hf0bUj_W8i0": {
+      "slug": "agentic-ai-su-vercel-architettura-pratica-per-agenti-che-fanno-cose-non-solo-cha",
+      "title": "Agentic AI su Vercel: architettura pratica per agenti che “fanno cose” (non solo chat)",
+      "sourceTitle": "Agentic AI with Vercel: Saltbox One",
+      "publishedAt": "2026-05-06",
+      "createdAt": "2026-05-07T08:31:04.849Z"
     }
   }
 }
