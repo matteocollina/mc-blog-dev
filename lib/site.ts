@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://mc-blog-dev.vercel.app/";
+const DEFAULT_SITE_URL = "https://frontendfacile.it/";
 
 function normalizeSiteUrl(value: string | undefined) {
   if (!value) {
@@ -19,8 +19,8 @@ function normalizeSiteUrl(value: string | undefined) {
 }
 
 export const siteConfig = {
-  name: "Blog di Matteo Collina",
-  description: "Blog in italiano dedicato al frontend.",
+  name: "frontendfacile.it",
+  description: "Frontend Facile, blog in italiano dedicato al frontend.",
   locale: "it_IT",
   siteUrl: normalizeSiteUrl(
     process.env.NEXT_PUBLIC_SITE_URL ??

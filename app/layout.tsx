@@ -93,7 +93,7 @@ gtag('config', 'G-5ZCW8LDWY6');`}
           <header className="mb-12 flex items-center justify-between border-b border-[var(--border)] pb-5">
             <Link
               href="/"
-              aria-label="Blog di Matteo Collina"
+              aria-label={siteConfig.name}
               className="transition-colors hover:text-[var(--text-tertiary)]"
             >
               <>
@@ -105,7 +105,7 @@ gtag('config', 'G-5ZCW8LDWY6');`}
                   className="rounded-full border border-[var(--border)] object-cover sm:hidden"
                 />
                 <span className="hidden text-lg font-semibold tracking-tight text-[var(--text-primary)] sm:inline">
-                  Blog di Matteo Collina
+                  {siteConfig.name}
                 </span>
               </>
             </Link>
