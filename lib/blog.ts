@@ -3,6 +3,7 @@ import path from "node:path";
 import { unstable_cache } from "next/cache";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
+export const POSTS_PER_PAGE = 10;
 
 export type BlogPostFrontmatter = {
   title: string;

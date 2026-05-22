@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 
 import { BlogListing } from "@/app/components/blog-listing";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, POSTS_PER_PAGE } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
-
-const POSTS_PER_PAGE = 10;
 
 function parsePageParam(value: string | string[] | undefined) {
   const candidate = Array.isArray(value) ? value[0] : value;
