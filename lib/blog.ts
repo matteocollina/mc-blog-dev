@@ -110,7 +110,13 @@ function sortPosts(posts: BlogPost[]) {
 }
 
 function sortCategories(categories: BlogCategory[]) {
-  return categories.sort((left, right) => left.name.localeCompare(right.name, "it"));
+  return categories.sort((left, right) => {
+    if (right.count !== left.count) {
+      return right.count - left.count;
+    }
+
+    return left.name.localeCompare(right.name, "it");
+  });
 }
 
 const loadAllPosts = unstable_cache(

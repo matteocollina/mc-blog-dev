@@ -114,5 +114,3 @@ Per non lasciare tutto in sospeso:
 ## Conclusione
 
 Arrivare a Google I/O preparati non significa conoscere già tutte le novità: significa avere strumenti, baseline e un processo per trasformare gli annunci in miglioramenti reali per i tuoi utenti e per il tuo team.
-
-Se vuoi, dimmi stack (React/Vue/Svelte/Angular, SSR o SPA, target browser) e priorità (performance, DX, a11y): posso adattare questa checklist in una versione su misura con comandi e strumenti consigliati.

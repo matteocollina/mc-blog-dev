@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { BlogListing } from "@/app/components/blog-listing";
-import { getAllPosts, POSTS_PER_PAGE } from "@/lib/blog";
+import { getAllCategories, getAllPosts, POSTS_PER_PAGE } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
 
 function parsePageParam(value: string | string[] | undefined) {
@@ -52,7 +52,7 @@ export async function generateMetadata(
 }
 
 export default async function BlogPage(props: PageProps<"/blog">) {
-  const posts = await getAllPosts();
+  const [posts, categories] = await Promise.all([getAllPosts(), getAllCategories()]);
   const searchParams = await props.searchParams;
   const requestedPage = parsePageParam(searchParams.page);
   const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
@@ -63,6 +63,7 @@ export default async function BlogPage(props: PageProps<"/blog">) {
   return (
     <BlogListing
       posts={visiblePosts}
+      categories={categories}
       currentPage={currentPage}
       totalPages={totalPages}
     />
