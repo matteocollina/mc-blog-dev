@@ -531,6 +531,48 @@
       "sourceTitle": "Chrome's new web dev tool: Modern Web Guidance #GoogleIO",
       "publishedAt": "2026-06-02",
       "createdAt": "2026-06-03T10:54:44.854Z"
+    },
+    "FVgbs2wvKmE": {
+      "slug": "la-prima-webcam-della-storia-un-hack-da-ufficio-nato-per-il-caffe",
+      "title": "La prima webcam della storia? Un hack da ufficio nato per… il caffè",
+      "sourceTitle": "The first webcam was invented to watch...coffee?",
+      "publishedAt": "2026-06-04",
+      "createdAt": "2026-06-05T09:39:48.730Z"
+    },
+    "4dtP6NjRNHQ": {
+      "slug": "css-nesting-due-trappole-comuni-ampersand-e-specificita",
+      "title": "CSS Nesting: due trappole comuni (ampersand e specificità)",
+      "sourceTitle": "Two CSS nesting gotchas",
+      "publishedAt": "2026-06-04",
+      "createdAt": "2026-06-05T09:40:22.775Z"
+    },
+    "LaHlz_OkDxY": {
+      "slug": "sai-davvero-riconoscere-un-interfaccia-stonata-un-test-pratico-per-allenare-l-oc",
+      "title": "Sai davvero riconoscere un’interfaccia “stonata”? Un test pratico per allenare l’occhio UI",
+      "sourceTitle": "This Tool Tests your UI Design Skills",
+      "publishedAt": "2026-06-04",
+      "createdAt": "2026-06-05T09:41:11.655Z"
+    },
+    "kFi1yuGlCcA": {
+      "slug": "emulare-capacita-dei-dispositivi-con-chrome-devtools-per-test-automatizzati-guid",
+      "title": "Emulare capacità dei dispositivi con Chrome DevTools (per test automatizzati guidati da agenti)",
+      "sourceTitle": "Emulate device capabilities with Chrome DevTools for agents",
+      "publishedAt": "2026-06-04",
+      "createdAt": "2026-06-05T09:41:54.003Z"
+    },
+    "SOrOKQOHBDg": {
+      "slug": "air-imbottiglia-gli-asset-creativi-un-workflow-moderno-tra-approvazioni-distribu",
+      "title": "Air “imbottiglia” gli asset creativi: un workflow moderno tra approvazioni, distribuzione e AI",
+      "sourceTitle": "You can just bottle Air | VTV Cribs",
+      "publishedAt": "2026-06-04",
+      "createdAt": "2026-06-05T09:42:28.367Z"
+    },
+    "XFBdKrbgo5U": {
+      "slug": "verso-ship-2026-cosa-aspettarsi-dalla-prossima-agent-cloud",
+      "title": "Verso Ship 2026: cosa aspettarsi dalla prossima “agent cloud”",
+      "sourceTitle": "What Are Vercel Engineers Building for Ship 2026?",
+      "publishedAt": "2026-06-03",
+      "createdAt": "2026-06-05T09:42:54.852Z"
     }
   }
 }
