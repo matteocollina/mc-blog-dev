@@ -37,6 +37,10 @@ function normalizeFrontmatterValue(value) {
   return normalized;
 }
 
+function normalizeMarkdownSource(source) {
+  return source.replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n");
+}
+
 function parseFrontmatterTags(value) {
   if (!value) {
     return [];
@@ -58,7 +62,8 @@ function parseFrontmatterTags(value) {
 }
 
 function parsePost(source) {
-  const match = source.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  const normalizedSource = normalizeMarkdownSource(source);
+  const match = normalizedSource.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
 
   if (!match) {
     throw new Error("Post markdown senza frontmatter valido.");
