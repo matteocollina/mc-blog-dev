@@ -174,4 +174,4 @@ Questo tipo di effetto dà il meglio con animazioni legate allo scroll (progress
 - **Componenti adattivi**: container queries per layout che dipendono dal contesto (sidebar vs main).
 - **Finiture**: `corner-shape` e animazioni scroll-driven come miglioramenti opzionali.
 
-Se vuoi, posso prepararti una mini demo completa (HTML + CSS) con tutti e tre i pattern, pronta da copiare in un CodePen/StackBlitz.
+La parte interessante è che questi pattern non servono solo a “fare layout”: ti permettono di costruire interfacce più elastiche, leggibili e facili da evolvere senza dover continuamente forzare media query o workaround inutili.
