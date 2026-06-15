@@ -82,5 +82,3 @@ Scegli una sola cosa:
 3) scrivi la “next action” in fondo al ticket o in `NOTES.md`
 
 Poi fermati. Il punto non è “finire tutto”. È **iniziare bene** e lasciare una pista chiara per ripartire.
-
-Se vuoi, dimmi su cosa stai lavorando (stack, progetto, problema) e ti propongo 3 micro-obiettivi adatti per sbloccare la settimana.

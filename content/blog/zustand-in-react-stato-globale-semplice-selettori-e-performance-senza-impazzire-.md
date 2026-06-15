@@ -219,5 +219,3 @@ Pro: separazione netta, funzioni riusabili ovunque. Contro: devi gestire naming/
 ## Conclusione
 
 Zustand dà il meglio quando sfrutti la sua idea centrale: **sottoscrivere solo ciò che ti serve** tramite selector. Da lì ottieni un flusso di stato globale più pulito, componenti che rerenderizzano meno e la libertà di usare lo stato anche fuori dall’albero React.
-
-Se vuoi, nel prossimo step ha senso parlare di persistenza, middleware e composizione di store: è lì che Zustand diventa davvero “da produzione” senza perdere la sua semplicità.

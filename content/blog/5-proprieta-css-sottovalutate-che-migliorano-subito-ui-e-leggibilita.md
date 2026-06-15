@@ -183,5 +183,3 @@ a:hover {
 - **tabular-nums**: cifre allineate e leggibili in tabelle e KPI.
 - **Multicolumn**: impaginazione editoriale con colonne fluide, `gap`, `column-rule` e controllo degli split.
 - **text-decoration**: underline su misura (spessore, offset, stile, colore) per link più rifiniti.
-
-Se vuoi, posso proporti uno snippet completo (HTML+CSS) che combina counters + grid per un layout “tips list” con numerazione allineata e accessibilità curata.

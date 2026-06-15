@@ -119,5 +119,3 @@ Appena hai una baseline, recuperi “potere” da ingegnere: non stai più discu
 - [ ] Precision/Recall/F1 (non solo accuracy)
 - [ ] Bootstrapping per robustezza statistica
 - [ ] Dataset “final exam” separato e intoccabile
-
-Se vuoi, nel prossimo articolo posso entrare nel concreto con un template di rubrica (pass/fail + severity), esempi di schema dati per le label e una struttura di report per confrontare versioni diverse del judge.

@@ -106,5 +106,3 @@ Se vuoi una verifica pratica, ecco segnali utili:
 
 ## Conclusione
 React è popolare perché è efficace e ha un ecosistema enorme, ma la curva di apprendimento reale non è “la sintassi”: è **la gestione della complessità**. Con un percorso a livelli — fondamenta, qualità/affidabilità, ecosistema avanzato — puoi trasformare React da fonte di frustrazione a competenza spendibile e stabile.
-
-Se vuoi, dimmi a che punto sei (principiante, già lavoro con React, o stai entrando in Next.js) e che tipo di progetto stai costruendo: posso suggerirti una roadmap più precisa e mirata sui tuoi obiettivi.
