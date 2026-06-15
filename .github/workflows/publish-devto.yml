@@ -1,0 +1,35 @@
+name: Publish DEV.to Articles
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "content/blog/*.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish-devto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Publish new blog posts to DEV.to
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          GITHUB_BEFORE: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
+          SITE_URL: https://frontendfacile.it
+        run: node ./scripts/publish-devto.mjs
