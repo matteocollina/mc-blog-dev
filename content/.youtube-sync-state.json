@@ -671,6 +671,34 @@
       "sourceTitle": "\"I just like computers\" - sounds like reason enough to work in tech, doesn't it?",
       "publishedAt": "2026-06-14",
       "createdAt": "2026-06-15T11:57:18.426Z"
+    },
+    "vj68el9hRvU": {
+      "slug": "ci-cd-self-healing-con-ai-quando-la-pipeline-fallisce-e-la-fix-arriva-in-pull-re",
+      "title": "CI/CD “self-healing” con AI: quando la pipeline fallisce e la fix arriva in Pull Request",
+      "sourceTitle": "Build a Self-Healing CI/CD Pipeline with AI",
+      "publishedAt": "2026-06-15",
+      "createdAt": "2026-06-16T07:34:37.730Z"
+    },
+    "ey_GaPdC9zk": {
+      "slug": "fable-5-ritirato-in-72-ore-quando-la-sicurezza-di-un-modello-diventa-un-problema",
+      "title": "Fable 5 ritirato in 72 ore: quando la “sicurezza” di un modello diventa un problema di prodotto",
+      "sourceTitle": "One man just liberated Fable... and now it’s illegal",
+      "publishedAt": "2026-06-15",
+      "createdAt": "2026-06-16T07:35:20.102Z"
+    },
+    "4AAiTP1B8wA": {
+      "slug": "fedcm-la-nuova-frontiera-del-login-federato-mediato-dal-browser",
+      "title": "FedCM: la nuova frontiera del login federato mediato dal browser",
+      "sourceTitle": "What is the Federated Credential Management API (FedCM)?",
+      "publishedAt": "2026-06-15",
+      "createdAt": "2026-06-16T07:36:00.245Z"
+    },
+    "oBZNKSyytOo": {
+      "slug": "le-3-novita-di-ai-tooling-in-chrome-che-cambiano-davvero-il-lavoro-quotidiano-de",
+      "title": "Le 3 novità di AI tooling in Chrome che cambiano davvero il lavoro quotidiano dei frontend",
+      "sourceTitle": "Top 3 AI tooling updates from Google I/O 2026",
+      "publishedAt": "2026-06-15",
+      "createdAt": "2026-06-16T07:36:25.931Z"
     }
   }
 }
