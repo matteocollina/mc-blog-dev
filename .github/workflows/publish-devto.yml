@@ -1,6 +1,11 @@
 name: Publish DEV.to Articles
 
 on:
+  workflow_run:
+    workflows:
+      - Generate YouTube Blog Posts
+    types:
+      - completed
   push:
     branches:
       - main
@@ -13,6 +18,7 @@ permissions:
 
 jobs:
   publish-devto:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +26,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,6 +37,6 @@ jobs:
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
           GITHUB_BEFORE: ${{ github.event.before }}
-          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
           SITE_URL: https://frontendfacile.it
         run: node ./scripts/publish-devto.mjs

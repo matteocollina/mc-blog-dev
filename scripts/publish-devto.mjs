@@ -134,20 +134,15 @@ function buildBodyMarkdown(post, canonicalUrl) {
 async function getAddedBlogFiles() {
   const before = getEnv("GITHUB_BEFORE");
   const after = getEnv("GITHUB_SHA") ?? "HEAD";
+  const diffArgs = ["diff", "--diff-filter=A", "--name-only"];
 
   if (!before || /^0+$/.test(before)) {
-    return [];
+    diffArgs.push(`${after}^`, after, "--", "content/blog");
+  } else {
+    diffArgs.push(before, after, "--", "content/blog");
   }
 
-  const { stdout } = await execFile("git", [
-    "diff",
-    "--diff-filter=A",
-    "--name-only",
-    before,
-    after,
-    "--",
-    "content/blog",
-  ]);
+  const { stdout } = await execFile("git", diffArgs);
 
   return stdout
     .split("\n")
