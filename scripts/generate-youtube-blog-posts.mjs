@@ -416,6 +416,9 @@ async function main() {
   const state = await readState();
   const usedSlugs = await existingSlugs();
   let hasErrors = false;
+  let createdPosts = 0;
+  let failedVideos = 0;
+  let failedChannels = 0;
   /**
    * Prende i video pubblicati o creati dopo quella soglia temporale, cioé negli ultimi LOOKBACK_HOURS`.
       Esempio:
@@ -436,6 +439,7 @@ async function main() {
       allVideos.push(...videos);
     } catch (error) {
       hasErrors = true;
+      failedChannels += 1;
       log(`Errore sul canale ${channelUrl}: ${error.message}`);
     }
   }
@@ -475,9 +479,11 @@ async function main() {
         createdAt: new Date().toISOString(),
       };
 
+      createdPosts += 1;
       log(`Creato post ${slug}.md`);
     } catch (error) {
       hasErrors = true;
+      failedVideos += 1;
       log(`Errore sul video ${video.videoId}: ${error.message}`);
     }
   }
@@ -485,8 +491,13 @@ async function main() {
   await writeState(state);
 
   if (hasErrors) {
-    throw new Error("Generazione completata con errori.");
+    log(
+      `Generazione completata con errori non bloccanti. Articoli pubblicati: ${createdPosts}. Canali falliti: ${failedChannels}. Video falliti: ${failedVideos}.`,
+    );
+    return;
   }
+
+  log(`Generazione completata con successo. Articoli pubblicati: ${createdPosts}.`);
 }
 
 try {
