@@ -133,6 +133,7 @@ function buildBodyMarkdown(post, canonicalUrl) {
 
 async function getAddedBlogFiles() {
   const before = getEnv("GITHUB_BEFORE");
+  console.log("before",before)
   const after = getEnv("GITHUB_SHA") ?? "HEAD";
   const diffArgs = ["diff", "--diff-filter=A", "--name-only"];
 
@@ -170,6 +171,7 @@ async function readPostSource(filePath) {
 }
 
 async function publishPost(apiKey, siteUrl, filePath) {
+  console.log("[publishPost] " + filePath)
   const source = await readPostSource(filePath);
   const post = parsePost(source);
   const slug = path.basename(filePath, ".md");
@@ -231,6 +233,8 @@ async function main() {
   );
 
   for (const file of files) {
+    // Rate limit reached, try again in 300 seconds
+    await new Promise((res,rej)=>{setTimeout(()=>res("ok"),300 * 1000)})
     await publishPost(apiKey, siteUrl, file);
   }
 }
