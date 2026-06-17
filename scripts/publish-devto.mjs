@@ -150,8 +150,27 @@ async function getAddedBlogFiles() {
     .filter((line) => line.endsWith(".md"));
 }
 
+async function readPostSource(filePath) {
+  const absolutePath = path.join(process.cwd(), filePath);
+
+  try {
+    return await readFile(absolutePath, "utf8");
+  } catch (error) {
+    if (error?.code !== "ENOENT") {
+      throw error;
+    }
+  }
+
+  const ref = getEnv("GITHUB_SHA") ?? "HEAD";
+  const { stdout } = await execFile("git", ["show", `${ref}:${filePath}`], {
+    maxBuffer: 10 * 1024 * 1024,
+  });
+
+  return stdout;
+}
+
 async function publishPost(apiKey, siteUrl, filePath) {
-  const source = await readFile(path.join(process.cwd(), filePath), "utf8");
+  const source = await readPostSource(filePath);
   const post = parsePost(source);
   const slug = path.basename(filePath, ".md");
   const canonicalUrl = new URL(`/blog/${slug}`, siteUrl).toString();
