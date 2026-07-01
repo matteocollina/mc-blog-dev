@@ -1007,6 +1007,34 @@
       "sourceTitle": "Figma Shaders are cool, but there's a problem",
       "publishedAt": "2026-06-29",
       "createdAt": "2026-06-30T09:28:36.889Z"
+    },
+    "mABpAI-pCw0": {
+      "slug": "basi-di-command-line-per-sviluppatori-frontend-navigare-file-e-cartelle-senza-pa",
+      "title": "Basi di Command Line per sviluppatori frontend: navigare file e cartelle senza paura",
+      "sourceTitle": "Command Line Basics for Beginners - Full Course",
+      "publishedAt": "2026-06-30",
+      "createdAt": "2026-07-01T09:39:21.346Z"
+    },
+    "7Z7ID5BbZU4": {
+      "slug": "i-container-non-rendono-sicuro-un-agente-ai-come-isolare-davvero-codice-rete-e-c",
+      "title": "I container non rendono “sicuro” un agente AI: come isolare davvero codice, rete e credenziali",
+      "sourceTitle": "Containers Don't Make Your AI Agent Safe",
+      "publishedAt": "2026-06-30",
+      "createdAt": "2026-07-01T09:40:01.097Z"
+    },
+    "q1lGlhRnzsM": {
+      "slug": "refactor-ui-come-ripulire-una-schermata-agents-piena-di-rumore-senza-rifarla-da-",
+      "title": "Refactor UI: come ripulire una schermata “Agents” piena di rumore (senza rifarla da zero)",
+      "sourceTitle": "Design Refactor of OpenClaw's New Mobile App",
+      "publishedAt": "2026-06-30",
+      "createdAt": "2026-07-01T09:40:46.553Z"
+    },
+    "dYEaN7ZqFmo": {
+      "slug": "redraw-e-skia-quando-la-ui-non-basta-piu-e-serve-un-motore-per-effetti-impossibi",
+      "title": "Redraw e Skia: quando la UI non basta più (e serve un motore per effetti “impossibili”)",
+      "sourceTitle": "Redraw for Effects Beyond Skia | Interview With William Candillon",
+      "publishedAt": "2026-07-01",
+      "createdAt": "2026-07-01T09:41:27.046Z"
     }
   }
 }
