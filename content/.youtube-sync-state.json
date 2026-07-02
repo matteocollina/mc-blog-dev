@@ -1035,6 +1035,41 @@
       "sourceTitle": "Redraw for Effects Beyond Skia | Interview With William Candillon",
       "publishedAt": "2026-07-01",
       "createdAt": "2026-07-01T09:41:27.046Z"
+    },
+    "2WJ-ut_XEYQ": {
+      "slug": "date-e-orari-in-javascript-senza-mal-di-testa-epoch-utc-fusi-orari-e-bug-reali",
+      "title": "Date e orari in JavaScript senza mal di testa: epoch, UTC, fusi orari e bug reali",
+      "sourceTitle": "Mastering JavaScript Dates and Times – Fundamentals to Advanced Techniques",
+      "publishedAt": "2026-07-01",
+      "createdAt": "2026-07-02T08:51:12.485Z"
+    },
+    "7B0ydm64cV8": {
+      "slug": "una-storia-strana-di-internet-perche-funziona-davvero-e-cosa-insegna-a-chi-fa-fr",
+      "title": "Una storia (strana) di Internet: perché funziona davvero e cosa insegna a chi fa frontend",
+      "sourceTitle": "The weird history of the internet...",
+      "publishedAt": "2026-07-01",
+      "createdAt": "2026-07-02T08:52:18.046Z"
+    },
+    "JbsVxccYYnY": {
+      "slug": "smettila-di-sprecare-tempo-con-javascript-i-popover-moderni-si-fanno-anche-in-cs",
+      "title": "Smettila di sprecare tempo con JavaScript: i popover moderni si fanno (anche) in CSS",
+      "sourceTitle": "Stop wasting time with JavaScript!",
+      "publishedAt": "2026-07-01",
+      "createdAt": "2026-07-02T08:52:51.700Z"
+    },
+    "Xh6nT6LK0kQ": {
+      "slug": "popover-nativi-in-html-con-animazioni-fluide-senza-javascript",
+      "title": "Popover nativi in HTML con animazioni fluide (senza JavaScript)",
+      "sourceTitle": "Native popovers with smooth animations (no JS required)",
+      "publishedAt": "2026-07-01",
+      "createdAt": "2026-07-02T08:53:33.837Z"
+    },
+    "8YHjl0OSZXA": {
+      "slug": "chrome-devtools-148-150-nuove-armi-per-il-debugging-agent-gemini-3-e-web-mcp",
+      "title": "Chrome DevTools 148–150: nuove armi per il debugging (agent, Gemini 3 e Web MCP)",
+      "sourceTitle": "Chrome DevTools 148+: How to use new debugging tools",
+      "publishedAt": "2026-07-01",
+      "createdAt": "2026-07-02T08:54:47.349Z"
     }
   }
 }
