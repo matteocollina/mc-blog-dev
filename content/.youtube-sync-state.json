@@ -1070,6 +1070,69 @@
       "sourceTitle": "Chrome DevTools 148+: How to use new debugging tools",
       "publishedAt": "2026-07-01",
       "createdAt": "2026-07-02T08:54:47.349Z"
+    },
+    "5HHiRBiNsyc": {
+      "slug": "eseguire-agent-ai-in-una-sandbox-sicura-come-evitare-token-rubati-e-repository-d",
+      "title": "Eseguire agent AI in una sandbox sicura: come evitare token rubati e repository distrutti",
+      "sourceTitle": "How To Run AI In A Secure Sandbox",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T08:57:06.216Z"
+    },
+    "HueOt0ctSGQ": {
+      "slug": "nitro-modules-in-react-native-perche-non-sono-solo-un-bridge-piu-veloce",
+      "title": "Nitro Modules in React Native: perché non sono “solo un bridge più veloce”",
+      "sourceTitle": "Why Nitro Is More Than a Faster Bridge | Interview With Marc Rousavy",
+      "publishedAt": "2026-07-03",
+      "createdAt": "2026-07-03T08:57:49.152Z"
+    },
+    "Bz0Q5aBJkNE": {
+      "slug": "eve-un-modo-convention-over-configuration-per-costruire-e-far-girare-ai-agent-in",
+      "title": "Eve: un modo “convention over configuration” per costruire e far girare AI agent in TypeScript (anche con modelli locali)",
+      "sourceTitle": "Can Eve Make AI Agents Easier to Build and Run?",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T08:58:39.295Z"
+    },
+    "lxd_BGQHSng": {
+      "slug": "quando-ti-serve-davvero-reanimated-e-quando-no-in-react-native",
+      "title": "Quando ti serve davvero Reanimated (e quando no) in React Native",
+      "sourceTitle": "When do you need Reanimated? | React Universe On Air Podcast",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T08:59:09.941Z"
+    },
+    "yitfETVnN70": {
+      "slug": "release-train-in-react-native-come-scalare-rilasci-affidabili-ogni-2-settimane-i",
+      "title": "Release train in React Native: come scalare rilasci affidabili ogni 2 settimane in un contesto B2B (e TV)",
+      "sourceTitle": "How React Native changed delivery at Zattoo | Webinar",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T08:59:38.756Z"
+    },
+    "w37SORQg8II": {
+      "slug": "automatizzare-lo-sviluppo-di-estensioni-chrome-con-agenti-di-coding-e-devtools-m",
+      "title": "Automatizzare lo sviluppo di estensioni Chrome con agenti di coding e DevTools (MCP)",
+      "sourceTitle": "Automate building Chrome Extensions with Antigravity and DevTools MCP (I/O Connect ‘26)",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T09:00:15.684Z"
+    },
+    "SnkNmrW0cdE": {
+      "slug": "siti-agent-ready-come-preparare-il-frontend-a-browser-agent-e-strumenti-struttur",
+      "title": "Siti “agent-ready”: come preparare il frontend a browser agent e strumenti strutturati",
+      "sourceTitle": "Practical steps to make your website agent-ready (I/O Connect ‘26)",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T09:01:01.073Z"
+    },
+    "3IZNhRHcY-g": {
+      "slug": "modern-web-guidance-come-far-smettere-all-ai-di-generare-codice-web-vecchio-e-re",
+      "title": "Modern Web Guidance: come far smettere all’AI di generare codice web “vecchio” (e renderlo davvero compatibile)",
+      "sourceTitle": "Bridge the AI knowledge gap with Modern Web Guidance (I/O Connect ‘26)",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T09:03:04.286Z"
+    },
+    "W07fSGVlcw8": {
+      "slug": "autenticazione-nel-2026-passkey-credenziali-digitali-e-flussi-senza-attrito-per-",
+      "title": "Autenticazione nel 2026: passkey, credenziali digitali e flussi “senza attrito” per il Web",
+      "sourceTitle": "Authentication in 2026: A guide to passkeys, digital credentials and more (I/O Connect ‘26)",
+      "publishedAt": "2026-07-02",
+      "createdAt": "2026-07-03T09:04:18.802Z"
     }
   }
 }
