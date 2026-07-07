@@ -1140,6 +1140,34 @@
       "sourceTitle": "Every Major AWS Outage (And Why They Keep Happening)",
       "publishedAt": "2026-07-03",
       "createdAt": "2026-07-04T08:31:59.120Z"
+    },
+    "T3ov18PfZRU": {
+      "slug": "reanimated-il-prossimo-passo-e-davvero-nativo-e-piu-vicino-al-web",
+      "title": "Reanimated: il prossimo passo è (davvero) nativo — e più vicino al web",
+      "sourceTitle": "Where Reanimated Goes Next | Interview With Bartłomiej Błoniarz",
+      "publishedAt": "2026-07-07",
+      "createdAt": "2026-07-07T09:35:10.111Z"
+    },
+    "_KBZ241HS9c": {
+      "slug": "chrome-for-developers-a-berlino-cosa-aspettarsi-dall-ecosistema-web-nel-2026",
+      "title": "Chrome for Developers a Berlino: cosa aspettarsi dall’ecosistema web nel 2026",
+      "sourceTitle": "Google I/O Connect Berlin with Chrome for Developers",
+      "publishedAt": "2026-07-06",
+      "createdAt": "2026-07-07T09:35:52.603Z"
+    },
+    "66josBG04qA": {
+      "slug": "devtools-for-agents-il-loop-di-feedback-chiuso-per-i-coding-agent-in-chrome",
+      "title": "DevTools for Agents: il loop di feedback chiuso per i coding agent in Chrome",
+      "sourceTitle": "New quest: Discover DevTools for agents",
+      "publishedAt": "2026-07-06",
+      "createdAt": "2026-07-07T09:36:46.812Z"
+    },
+    "0WCSLpL_FFM": {
+      "slug": "quando-la-sicurezza-diventa-un-permission-system-cosa-cambia-per-chi-sviluppa-co",
+      "title": "Quando la “sicurezza” diventa un permission system: cosa cambia per chi sviluppa con i modelli chiusi",
+      "sourceTitle": "Anthropic's War On Open Source AI",
+      "publishedAt": "2026-07-06",
+      "createdAt": "2026-07-07T09:37:54.974Z"
     }
   }
 }
