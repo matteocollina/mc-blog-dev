@@ -1203,6 +1203,62 @@
       "sourceTitle": "Life After I/O: Where is the Chrome DevRel team now?",
       "publishedAt": "2026-07-07",
       "createdAt": "2026-07-08T08:24:55.055Z"
+    },
+    "aJP1AbZSqz8": {
+      "slug": "typescript-in-react-tipizzare-stato-props-e-funzioni-senza-impazzire",
+      "title": "TypeScript in React: tipizzare stato, props e funzioni senza impazzire",
+      "sourceTitle": "TypeScript in React - Full Tutorial",
+      "publishedAt": "2026-07-08",
+      "createdAt": "2026-07-09T09:32:32.097Z"
+    },
+    "KGtko3y2RXQ": {
+      "slug": "dentro-i-pensieri-privati-di-un-llm-j-space-global-workspace-e-cosa-cambia-davve",
+      "title": "Dentro i “pensieri privati” di un LLM: J-Space, Global Workspace e cosa cambia davvero per chi sviluppa",
+      "sourceTitle": "Claude is definitely not conscious…",
+      "publishedAt": "2026-07-08",
+      "createdAt": "2026-07-09T09:33:35.970Z"
+    },
+    "AiZsEIhIves": {
+      "slug": "animazioni-next-level-con-gsap-scroll-stagger-e-trigger-per-landing-page-che-si-",
+      "title": "Animazioni “next-level” con GSAP: scroll, stagger e trigger per landing page che si muovono bene",
+      "sourceTitle": "Make a next-level site with GSAP",
+      "publishedAt": "2026-07-08",
+      "createdAt": "2026-07-09T09:34:12.645Z"
+    },
+    "xldO6EYxdkY": {
+      "slug": "ai-e-monetizzazione-mobile-come-cambiano-paywall-sdk-e-workflow-per-chi-sviluppa",
+      "title": "AI e monetizzazione mobile: come cambiano paywall, SDK e workflow per chi sviluppa frontend",
+      "sourceTitle": "What AI Changes for Paywalls and Monetization | Interview With Perttu Lähteenlahti",
+      "publishedAt": "2026-07-09",
+      "createdAt": "2026-07-09T09:34:49.585Z"
+    },
+    "-DFMxtnnagU": {
+      "slug": "ease-in-react-native-animazioni-native-first-senza-sostituire-reanimated",
+      "title": "Ease in React Native: animazioni “native-first” senza sostituire Reanimated",
+      "sourceTitle": "React Native Ease vs. Reanimated | React Universe On Air",
+      "publishedAt": "2026-07-08",
+      "createdAt": "2026-07-09T09:35:19.746Z"
+    },
+    "D0ouZLEeoPQ": {
+      "slug": "react-native-ease-animazioni-native-fire-and-forget-puntando-alle-primitive-di-p",
+      "title": "React Native Ease: animazioni native “fire-and-forget” puntando alle primitive di piattaforma",
+      "sourceTitle": "React Native Ease: Faster Native Animations with Platform Primitives  | React Universe On Air",
+      "publishedAt": "2026-07-08",
+      "createdAt": "2026-07-09T09:35:51.815Z"
+    },
+    "rXT0bscwllk": {
+      "slug": "due-workflow-per-alzare-la-qualita-delle-web-app-nell-era-degli-agenti-modern-we",
+      "title": "Due workflow per alzare la qualità delle web app nell’era degli agenti: Modern Web Guidance e DevTools “agent-ready”",
+      "sourceTitle": "New workflows for improved web app quality: Modern Web Guidance and DevTools (I/O Connect '26)",
+      "publishedAt": "2026-07-09",
+      "createdAt": "2026-07-09T09:37:01.150Z"
+    },
+    "OPHGK5tn1Y0": {
+      "slug": "autenticazione-nel-2026-progettare-un-ciclo-di-vita-dell-account-senza-attrito-e",
+      "title": "Autenticazione nel 2026: progettare un ciclo di vita dell’account senza attrito (e senza password)",
+      "sourceTitle": "Authentication in 2026: A guide to passkeys, digital credentials and more (I/O Connect ‘26)",
+      "publishedAt": "2026-07-08",
+      "createdAt": "2026-07-09T09:38:03.230Z"
     }
   }
 }
