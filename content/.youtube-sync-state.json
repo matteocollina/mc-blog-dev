@@ -1294,6 +1294,34 @@
       "sourceTitle": "What is Modern Web Guidance?",
       "publishedAt": "2026-07-09",
       "createdAt": "2026-07-10T09:30:26.744Z"
+    },
+    "n1VUnHD62r0": {
+      "slug": "algoritmo-di-dijkstra-trovare-il-percorso-minimo-e-perche-serve-ancora-nel-softw",
+      "title": "Algoritmo di Dijkstra: trovare il percorso minimo (e perché serve ancora nel software moderno)",
+      "sourceTitle": "The 20 Minute Masterpiece: Dijkstra's Algorithm",
+      "publishedAt": "2026-07-10",
+      "createdAt": "2026-07-11T07:49:15.510Z"
+    },
+    "URKml8lgw8Y": {
+      "slug": "gpt-5-6-modelli-a-famiglia-e-sviluppo-agentico-davvero-in-parallelo",
+      "title": "GPT 5.6: modelli “a famiglia” e sviluppo agentico (davvero) in parallelo",
+      "sourceTitle": "OpenAI is so back... GPT 5.6 Sol first look",
+      "publishedAt": "2026-07-10",
+      "createdAt": "2026-07-11T07:49:48.626Z"
+    },
+    "0heeppCYrmM": {
+      "slug": "lighthouse-agentic-browsing-come-verificare-se-un-sito-e-davvero-pronto-per-gli-",
+      "title": "Lighthouse “Agentic browsing”: come verificare se un sito è davvero pronto per gli agenti",
+      "sourceTitle": "Lighthouse Audit: Make your website agent-ready",
+      "publishedAt": "2026-07-10",
+      "createdAt": "2026-07-11T07:50:59.711Z"
+    },
+    "luOzh9Q1zY8": {
+      "slug": "effetto-farfalla-nel-frontend-come-una-scelta-piccola-cambia-tutto-anche-il-tuo-",
+      "title": "Effetto farfalla nel frontend: come una scelta piccola cambia tutto (anche il tuo stack)",
+      "sourceTitle": "The Butterfly Effect: Dev Edition",
+      "publishedAt": "2026-07-10",
+      "createdAt": "2026-07-11T07:51:44.240Z"
     }
   }
 }
