@@ -1343,6 +1343,34 @@
       "sourceTitle": "How To Build Your Own RAG AI System - Better Results Than Claude",
       "publishedAt": "2026-07-14",
       "createdAt": "2026-07-15T08:01:33.922Z"
+    },
+    "YdhXnB5E-4s": {
+      "slug": "intro-agli-shader-con-javascript-e-p5-js-capire-davvero-gpu-glsl-e-pipeline-webg",
+      "title": "Intro agli shader con JavaScript e p5.js: capire davvero GPU, GLSL e pipeline (WebGL2)",
+      "sourceTitle": "Intro to Shaders – JavaScript & p5.js Course for Beginners",
+      "publishedAt": "2026-07-15",
+      "createdAt": "2026-07-16T08:06:17.181Z"
+    },
+    "CXSvKcLovAk": {
+      "slug": "bun-riscrive-tutto-da-zig-a-rust-in-11-giorni-e-cosa-ci-insegna-davvero",
+      "title": "Bun riscrive tutto: da Zig a Rust in 11 giorni (e cosa ci insegna davvero)",
+      "sourceTitle": "The most controversial rewrite in history just shipped...",
+      "publishedAt": "2026-07-15",
+      "createdAt": "2026-07-16T08:07:08.749Z"
+    },
+    "2kEsTcc4FMs": {
+      "slug": "rispondere-alle-recensioni-sul-chrome-web-store-perche-conviene-e-come-farlo-ben",
+      "title": "Rispondere alle recensioni sul Chrome Web Store: perché conviene (e come farlo bene)",
+      "sourceTitle": "How to engage with Chrome Web Store reviews",
+      "publishedAt": "2026-07-15",
+      "createdAt": "2026-07-16T08:08:53.319Z"
+    },
+    "NcUWwgfAolQ": {
+      "slug": "html-dentro-canvas-ui-completa-effetti-gpu-e-accessibilita-senza-compromessi",
+      "title": "HTML dentro Canvas: UI completa, effetti GPU e accessibilità senza compromessi",
+      "sourceTitle": "See the HTML-in-Canvas API in action",
+      "publishedAt": "2026-07-15",
+      "createdAt": "2026-07-16T08:09:42.966Z"
     }
   }
 }
