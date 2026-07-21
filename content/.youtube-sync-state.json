@@ -1448,6 +1448,76 @@
       "sourceTitle": "OpenAI Scaled To 800 Million Users with This Simple Architecture",
       "publishedAt": "2026-07-20",
       "createdAt": "2026-07-20T08:51:24.623Z"
+    },
+    "reDRM0tqhNs": {
+      "slug": "claude-certified-architect-foundations-cca-f-cosa-studiare-davvero-e-come-prepar",
+      "title": "Claude Certified Architect Foundations (CCA‑f): cosa studiare davvero e come prepararsi con un approccio “hands-on”",
+      "sourceTitle": "Claude Certified Architect - Foundations – Prepare for and pass the exam!",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:21:58.279Z"
+    },
+    "M51asSwRLxA": {
+      "slug": "inkling-un-modello-open-weights-medio-di-proposito-che-punta-su-efficienza-contr",
+      "title": "Inkling: un modello open weights “medio” (di proposito) che punta su efficienza, controllo e specializzazione",
+      "sourceTitle": "This $12 billion startup finally shipped something...",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:22:43.789Z"
+    },
+    "hJSe6tM0PUI": {
+      "slug": "webmcp-in-pratica-un-adapter-per-far-parlare-gli-agenti-ai-con-le-web-app-senza-",
+      "title": "WebMCP in pratica: un “adapter” per far parlare gli agenti AI con le web app (senza DOM scraping)",
+      "sourceTitle": "Deep dive with Dhananjay Kumar from MakeMyTrip",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:23:36.954Z"
+    },
+    "dJ60ymK2Ook": {
+      "slug": "html-canvas-l-ibrido-pratico-per-ui-piu-rapide-e-ricche-senza-rinunciare-al-web",
+      "title": "HTML + Canvas: l’ibrido pratico per UI più rapide e “ricche” senza rinunciare al Web",
+      "sourceTitle": "How to build faster, richer UIs",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:24:09.348Z"
+    },
+    "3VBpZ2aTQos": {
+      "slug": "come-pianificare-il-rilascio-di-un-aggiornamento-per-un-estensione-chrome",
+      "title": "Come pianificare il rilascio di un aggiornamento per un’estensione Chrome",
+      "sourceTitle": "How to schedule an extension release",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:24:36.417Z"
+    },
+    "yBCnu2JHs7Q": {
+      "slug": "dall-idea-al-deploy-in-meno-di-un-ora-con-stripe-projects-e-un-agente-di-coding",
+      "title": "Dall’idea al deploy in meno di un’ora con Stripe Projects (e un agente di coding)",
+      "sourceTitle": "Ship 26 NYC - Workshop - From init to deploy in 30 minutes",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:25:16.258Z"
+    },
+    "_EnysOaaTMg": {
+      "slug": "internal-app-e-agent-in-produzione-come-cambiano-stack-ruoli-e-guard-rail-nelle-",
+      "title": "Internal app e agent in produzione: come cambiano stack, ruoli e guard rail nelle aziende",
+      "sourceTitle": "Ship 26 NYC - CTO panel: Internal apps and agents in production",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:26:09.700Z"
+    },
+    "cYzjlLdpzXA": {
+      "slug": "da-zero-a-un-agente-slack-deployato-su-vercel-workflow-pratico-con-slack-cli-tem",
+      "title": "Da zero a un agente Slack deployato su Vercel: workflow pratico con Slack CLI, template e hot reload",
+      "sourceTitle": "Ship 26 NYC - Workshop - Build and deploy a Slack Agent to Vercel",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:27:20.361Z"
+    },
+    "eD8pV7nSIxY": {
+      "slug": "eve-agent-a-file-system-su-vercel-tra-canali-tool-e-valutazioni-automatiche",
+      "title": "Eve: agent “a file system” su Vercel, tra canali, tool e valutazioni automatiche",
+      "sourceTitle": "Ship 26 NYC - Workshop - Build an Agent with Eve: The Open Agent Framework",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:28:46.398Z"
+    },
+    "fF_SQ51E4C8": {
+      "slug": "dal-prototipo-alla-scala-globale-come-unire-la-velocita-di-vercel-e-la-profondit",
+      "title": "Dal prototipo alla scala globale: come unire la velocità di Vercel e la profondità di AWS",
+      "sourceTitle": "Ship 26 NYC - Think Bigger: From Prototype to Global Scale with Vercel and AWS",
+      "publishedAt": "2026-07-20",
+      "createdAt": "2026-07-21T08:30:10.729Z"
     }
   }
 }
