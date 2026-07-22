@@ -1518,6 +1518,48 @@
       "sourceTitle": "Ship 26 NYC - Think Bigger: From Prototype to Global Scale with Vercel and AWS",
       "publishedAt": "2026-07-20",
       "createdAt": "2026-07-21T08:30:10.729Z"
+    },
+    "_kNabHEZQlo": {
+      "slug": "dijkstra-e-i-20-minuti-che-hanno-cambiato-il-modo-in-cui-troviamo-la-strada",
+      "title": "Dijkstra e i 20 minuti che hanno cambiato il modo in cui troviamo la strada",
+      "sourceTitle": "Did you know that Dijkstra came up with his famous algorithm in about 20 minutes?",
+      "publishedAt": "2026-07-21",
+      "createdAt": "2026-07-22T08:21:50.780Z"
+    },
+    "BH9ZgUYjiic": {
+      "slug": "tanstack-intent-buona-idea-integrazione-fragile-e-come-fare-meglio-senza-magia",
+      "title": "TanStack Intent: buona idea, integrazione fragile (e come fare meglio senza “magia”)",
+      "sourceTitle": "I Wish This Was Better",
+      "publishedAt": "2026-07-21",
+      "createdAt": "2026-07-22T08:22:30.198Z"
+    },
+    "PxEK-k6Efi0": {
+      "slug": "da-una-foto-a-un-oggetto-3d-interattivo-con-three-js-in-pochi-minuti-davvero",
+      "title": "Da una foto a un oggetto 3D interattivo con Three.js in pochi minuti (davvero)",
+      "sourceTitle": "From Pictures of Objects to 3D Three.js in MINUTES",
+      "publishedAt": "2026-07-21",
+      "createdAt": "2026-07-22T08:23:20.931Z"
+    },
+    "-OYQTmSBS3A": {
+      "slug": "react-native-performance-guide-da-dove-partire-davvero-in-base-al-tuo-ruolo",
+      "title": "React Native Performance Guide: da dove partire (davvero) in base al tuo ruolo",
+      "sourceTitle": "Where to start with Performance Guide?",
+      "publishedAt": "2026-07-22",
+      "createdAt": "2026-07-22T08:23:53.590Z"
+    },
+    "5lJ0a6tdj-4": {
+      "slug": "webmcp-progettare-strumenti-agent-friendly-e-debuggarli-in-chrome-devtools",
+      "title": "WebMCP: progettare strumenti “agent-friendly” e debuggarli in Chrome DevTools",
+      "sourceTitle": "How to build and debug WebMCP tools for browser agents",
+      "publishedAt": "2026-07-21",
+      "createdAt": "2026-07-22T08:24:29.289Z"
+    },
+    "VyoTAuLb0ck": {
+      "slug": "perche-l-harness-batte-il-modello-lezioni-pratiche-dai-sistemi-multi-agente",
+      "title": "Perché l’“harness” batte il modello: lezioni pratiche dai sistemi multi‑agente",
+      "sourceTitle": "Cursor Team Proved Harness matters more than Models",
+      "publishedAt": "2026-07-22",
+      "createdAt": "2026-07-22T08:25:15.925Z"
     }
   }
 }
