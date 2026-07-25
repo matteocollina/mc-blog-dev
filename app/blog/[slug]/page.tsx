@@ -7,7 +7,7 @@ import MarkdownContent from "@/app/components/markdown-content";
 import {
   formatPublishedAt,
   getAdjacentPosts,
-  getAllPosts,
+  getAllPostSummaries,
   getPostBySlug,
   slugifyTag,
 } from "@/lib/blog";
@@ -16,7 +16,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const posts = await getAllPostSummaries();
 
   return posts.map((post) => ({
     slug: post.slug,

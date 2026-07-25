@@ -13,8 +13,11 @@ export type BlogPostFrontmatter = {
   tags: string[];
 };
 
-export type BlogPost = BlogPostFrontmatter & {
+export type BlogPostSummary = BlogPostFrontmatter & {
   slug: string;
+};
+
+export type BlogPost = BlogPostSummary & {
   content: string;
 };
 
@@ -107,7 +110,7 @@ function parseFrontmatterTags(value: string | undefined) {
   }
 }
 
-function sortPosts(posts: BlogPost[]) {
+function sortPosts<T extends BlogPostSummary>(posts: T[]) {
   return posts.sort(
     (left, right) =>
       new Date(right.publishedAt).getTime() - new Date(left.publishedAt).getTime(),
@@ -124,7 +127,7 @@ function sortCategories(categories: BlogCategory[]) {
   });
 }
 
-const loadAllPosts = unstable_cache(
+const loadAllPostSummaries = unstable_cache(
   async () => {
     const entries = await readdir(BLOG_DIR, { withFileTypes: true });
     const posts = await Promise.all(
@@ -137,7 +140,11 @@ const loadAllPosts = unstable_cache(
 
           return {
             slug,
-            ...post,
+            title: post.title,
+            subtitle: post.subtitle,
+            description: post.description,
+            publishedAt: post.publishedAt,
+            tags: post.tags,
           };
         }),
     );
@@ -151,8 +158,8 @@ const loadAllPosts = unstable_cache(
   },
 );
 
-export async function getAllPosts() {
-  return loadAllPosts();
+export async function getAllPostSummaries() {
+  return loadAllPostSummaries();
 }
 
 export async function getPostBySlug(slug: string) {
@@ -172,7 +179,7 @@ export async function getPostBySlug(slug: string) {
 }
 
 export async function getAdjacentPosts(slug: string) {
-  const posts = await getAllPosts();
+  const posts = await getAllPostSummaries();
   const currentIndex = posts.findIndex((post) => post.slug === slug);
 
   if (currentIndex === -1) {
@@ -198,7 +205,7 @@ export function slugifyTag(tag: string) {
 }
 
 export async function getAllCategories() {
-  const posts = await getAllPosts();
+  const posts = await getAllPostSummaries();
   const categories = new Map<string, BlogCategory>();
 
   for (const post of posts) {
@@ -233,7 +240,7 @@ export async function getCategoryBySlug(slug: string) {
 }
 
 export async function getPostsByTagSlug(slug: string) {
-  const posts = await getAllPosts();
+  const posts = await getAllPostSummaries();
 
   return posts.filter((post) =>
     post.tags.some((tag) => slugifyTag(tag) === slug),

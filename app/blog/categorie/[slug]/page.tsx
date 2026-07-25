@@ -12,14 +12,16 @@ import {
 } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
 
-export const dynamicParams = false;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const categories = await getAllCategories();
 
-  return categories.map((category) => ({
-    slug: category.slug,
-  }));
+  return categories
+    .filter((category) => category.count > 1)
+    .map((category) => ({
+      slug: category.slug,
+    }));
 }
 
 export async function generateMetadata(

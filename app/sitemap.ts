@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 
-import { getAllCategories, getAllPosts, getPostsByTagSlug } from "@/lib/blog";
+import {
+  getAllCategories,
+  getAllPostSummaries,
+  getPostsByTagSlug,
+} from "@/lib/blog";
 import { absoluteUrl } from "@/lib/site";
 
 function latestDate(dates: Array<string | Date>) {
@@ -11,7 +15,10 @@ function latestDate(dates: Array<string | Date>) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [posts, categories] = await Promise.all([getAllPosts(), getAllCategories()]);
+  const [posts, categories] = await Promise.all([
+    getAllPostSummaries(),
+    getAllCategories(),
+  ]);
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {

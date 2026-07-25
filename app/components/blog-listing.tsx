@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 import BlogTagSidebar from "@/app/components/blog-tag-sidebar";
-import type { BlogCategory, BlogPost } from "@/lib/blog";
+import type { BlogCategory, BlogPostSummary } from "@/lib/blog";
 import { formatPublishedAt, slugifyTag } from "@/lib/blog";
 
 type BlogListingProps = {
-  posts: BlogPost[];
+  posts: BlogPostSummary[];
   categories: BlogCategory[];
   currentPage: number;
   totalPages: number;

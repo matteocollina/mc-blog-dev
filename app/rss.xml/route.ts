@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import { getAllPostSummaries } from "@/lib/blog";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 function escapeXml(value: string) {
@@ -11,7 +11,7 @@ function escapeXml(value: string) {
 }
 
 export async function GET() {
-  const posts = await getAllPosts();
+  const posts = await getAllPostSummaries();
   const lastBuildDate = posts[0]?.publishedAt ?? new Date().toISOString();
   const feedUrl = absoluteUrl("/rss.xml");
 

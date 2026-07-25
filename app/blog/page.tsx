@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 
 import { BlogListing } from "@/app/components/blog-listing";
-import { getAllCategories, getAllPosts, POSTS_PER_PAGE } from "@/lib/blog";
+import {
+  getAllCategories,
+  getAllPostSummaries,
+  POSTS_PER_PAGE,
+} from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
 
 function parsePageParam(value: string | string[] | undefined) {
@@ -52,7 +56,10 @@ export async function generateMetadata(
 }
 
 export default async function BlogPage(props: PageProps<"/blog">) {
-  const [posts, categories] = await Promise.all([getAllPosts(), getAllCategories()]);
+  const [posts, categories] = await Promise.all([
+    getAllPostSummaries(),
+    getAllCategories(),
+  ]);
   const searchParams = await props.searchParams;
   const requestedPage = parsePageParam(searchParams.page);
   const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
