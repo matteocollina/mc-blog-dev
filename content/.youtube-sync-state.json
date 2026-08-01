@@ -1735,6 +1735,13 @@
       "sourceTitle": "npx airfry@latest cal.com | VTV Cribs",
       "publishedAt": "2026-07-30",
       "createdAt": "2026-07-31T08:48:35.701Z"
+    },
+    "hAsz5GAbBQE": {
+      "slug": "kubernetes-operator-con-kubebuilder-best-practice-per-evitare-conflitti-retry-in",
+      "title": "Kubernetes Operator con Kubebuilder: best practice per evitare conflitti, retry inutili e reconciliation infinite",
+      "sourceTitle": "Kubernetes Operator Best Practices – Kubebuilder Deep Dive",
+      "publishedAt": "2026-07-31",
+      "createdAt": "2026-08-01T08:14:10.930Z"
     }
   }
 }
