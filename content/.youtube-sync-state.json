@@ -1819,6 +1819,13 @@
       "sourceTitle": "The Right Way to Add Secure Auth in 10 mins",
       "publishedAt": "2026-08-07",
       "createdAt": "2026-08-07T07:12:25.416Z"
+    },
+    "rgqw3bT6cwU": {
+      "slug": "5-regole-per-rendere-ripetibili-i-test-qa-con-agenti-ai-senza-flakiness",
+      "title": "5 regole per rendere ripetibili i test QA con agenti AI (senza flakiness)",
+      "sourceTitle": "Five Rules Can Make an AI QA Run Repeatable",
+      "publishedAt": "2026-08-10",
+      "createdAt": "2026-08-10T07:24:05.754Z"
     }
   }
 }
