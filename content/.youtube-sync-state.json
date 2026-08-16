@@ -1882,6 +1882,13 @@
       "sourceTitle": "How AI agents fix Lighthouse errors in Chrome DevTools",
       "publishedAt": "2026-08-13",
       "createdAt": "2026-08-14T07:20:24.266Z"
+    },
+    "wRJWpUKMESU": {
+      "slug": "perche-smettere-di-usare-corepack-per-installare-pnpm-e-cosa-fare-invece",
+      "title": "Perché smettere di usare Corepack per installare pnpm (e cosa fare invece)",
+      "sourceTitle": "Stop Using Corepack to Install PNPM",
+      "publishedAt": "2026-08-15",
+      "createdAt": "2026-08-16T06:32:30.441Z"
     }
   }
 }
